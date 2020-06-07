@@ -15,7 +15,6 @@ add_filter( 'show_admin_bar', '__return_false' );
 //カスタムメニュー
 add_theme_support( 'menus' );
 register_nav_menu( 'header-nav',  ' ヘッダーナビゲーション ' );
-register_nav_menu( 'footer-nav',  ' フッターナビゲーション ' );
 register_nav_menu( 'diary-nav',  ' ダイアリーナビゲーション ' );
 
 //JSファイルのインポート
@@ -29,6 +28,7 @@ function my_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'my_scripts' );
 
+
 // 人気記事出力用
 function getPostViews($postID){
 	$count_key = 'post_views_count';
@@ -40,6 +40,7 @@ function getPostViews($postID){
 	}
 	return $count.' Views';
 }
+
 function setPostViews($postID) {
 	$count_key = 'post_views_count';
 	$count = get_post_meta($postID, $count_key, true);

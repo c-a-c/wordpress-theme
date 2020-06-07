@@ -4,9 +4,24 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+
+<!-- 
+Theme Name  : C.A.C.Web
+Author      : Keisuke Ikeda, Naoki Okamoto, Hikaru Suzuki
+Date        : 2020/06/07 (created：2017)
+Description : original theme
+Version     ： 1.0.0 
+-->
+
+<?php
+/**
+ Template Name: ダイアリー_プロジェクト
+*/
+?>
+
 <html>
     <head>
-        <title>ダイアリー_部員向け情報 | C.A.C. | 京都産業大学 文化団体連盟所属 電子計算機応用部</title>
+        <title>ダイアリー_プロジェクト | C.A.C. | 京都産業大学 文化団体連盟所属 電子計算機応用部</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
@@ -29,7 +44,7 @@ and open the template in the editor.
     </head>
     <body>
         
-        <?php get_header("other"); ?>
+        <?php get_header("mini"); ?>
         
         <!-- ダイアリーのトップ画像 -->
         <div class="diaryBackgroundImage"></div>
@@ -50,27 +65,20 @@ and open the template in the editor.
             
             <!-- ダイアリーメニュー -->
             <div class="diaryContents__menuBar--base">
-                <?php 
-                wp_nav_menu(
-                    [
-                        'theme_location' => 'diary-nav',
-                        'menu' => '',
-                        'menu_class' => 'diaryContents__menuBar--frame',
-                        'menu_id' => 'menu',
-                        'container' => '',
-                        'container_class' => 'diaryContents__menuBar--cell',
-                        'container_id' => '',
-                        'fallback_cb' => ''
-                    ]
-                ); 
-                ?>
+                <div class="diaryContents__menuBar--frame">
+                    <a href="http://localhost/wordpress/diary/" class="diaryContents__menuBar--cell">トップ</a>
+                    <a href="http://localhost/wordpress/diary/diary-event" class="diaryContents__menuBar--cell">行事</a>
+                    <a href="http://localhost/wordpress/diary//diary-activity" class="diaryContents__menuBar--cell">活動日誌</a>
+                    <a href="http://localhost/wordpress/diary//diary-project" class="diaryContents__menuBar--cell">プロジェクト</a>
+                    <a href="http://localhost/wordpress/diary//diary-members" class="diaryContents__menuBar--cell">部員向け情報</a>
+                </div>
             </div>
             
             <div class="eachDiaryContents--frame">
                 
                 <div class="eachDiaryContents--sentence">
-                    <h2 class="diary">「部員向け情報」記事一覧</h2>
-                    <?php query_posts('posts_per_page=12&category_name=diary-members'); ?>
+                    <h2 class="diary">「プロジェクト」記事一覧</h2>
+                    <?php query_posts('posts_per_page=12&category_name=diary-project'); ?>
                     
                     <?php if(have_posts()): while(have_posts()): the_post(); ?>
                     <div <?php post_class( "diaryContents__cell--frame" ); ?>> 
@@ -116,7 +124,7 @@ and open the template in the editor.
                     <?php else : ?>
                     <div class="diaryContents__noCongtentsMessage__background">
                         <div class="diaryContents__noCongtentsMessage--frame">
-                            現在は掲載中の「部員向け情報」は御座いません。
+                            現在は掲載中の「プロジェクト」は御座いません。
                         </div>
                     </div>
                     <?php endif; ?>

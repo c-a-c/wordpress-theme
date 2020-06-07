@@ -4,6 +4,21 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+
+<!-- 
+Theme Name  : C.A.C.Web
+Author      : Keisuke Ikeda, Naoki Okamoto, Hikaru Suzuki
+Date        : 2020/06/07 (created：2017)
+Description : original theme
+Version     ： 1.0.0 
+-->
+
+<?php
+/**
+ Template Name: ホーム
+*/
+?>
+
 <html>
     <head>
         <title>C.A.C. | 京都産業大学 文化団体連盟所属 電子計算機応用部</title>
@@ -30,12 +45,15 @@ and open the template in the editor.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         
-        <?php wp_head(); ?><!--システム・プラグイン用-->
-        
+        <!--システム・プラグイン用-->
+        <?php wp_head(); ?>
     </head>
     <body>
+        <!-- header-mini.phpを読み込む -->
+        <?php get_header("mini"); ?>
         
-        <?php get_header("top"); ?>
+        <!-- header-front.phpを読み込む -->
+        <?php get_header("front"); ?>
         
         <!-- start main contents -->
         <div class="mainTitle">
@@ -56,7 +74,7 @@ and open the template in the editor.
                 </div>
             </div>
 
-            <div class="mainMenu__projectLink" onclick="document.location.href = '<?php echo esc_url( home_url( 'index.php/category/project/' ) ); ?>'" onmouseout="hoverMainMenu('project', false);" onmouseover="hoverMainMenu('project', true);">
+            <div class="mainMenu__projectLink" onclick="document.location.href = '<?php echo esc_url( home_url( 'index.php/project/' ) ); ?>'" onmouseout="hoverMainMenu('project', false);" onmouseover="hoverMainMenu('project', true);">
                 <div class="mainMenu__imageRight" id="mainMenu__projectLink" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/top/mainMenu_project.png');"></div>
                 <div class="mainMenu__discriptionLeft" style="background-color: #69abdf;">
                     <div class="mainMenu__discriptionLogo" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/top/mainMenu_logo_プロジェクト.png');"></div>
@@ -67,7 +85,7 @@ and open the template in the editor.
                 </div>
             </div>
 
-            <div class="mainMenu__diaryLink" onclick="document.location.href = '<?php echo esc_url( home_url( 'index.php/category/diary/' ) ); ?>'" onmouseout="hoverMainMenu('diary', false);" onmouseover="hoverMainMenu('diary', true);">
+            <div class="mainMenu__diaryLink" onclick="document.location.href = '<?php echo esc_url( home_url( 'index.php/diary/' ) ); ?>'" onmouseout="hoverMainMenu('diary', false);" onmouseover="hoverMainMenu('diary', true);">
                 <div class="mainMenu__imageLeft" id="mainMenu__diaryLink" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/top/mainMenu_diary.png');">
                     <div class="mainMenu__squareLeft" style="background-color: #d069df;"></div>
                 </div>
@@ -86,40 +104,38 @@ and open the template in the editor.
                 <div class="mainDiary__title">Diary</div>
                 <?php query_posts('posts_per_page=3&category_name=diary'); ?>
                 <?php if(have_posts()): while(have_posts()): the_post(); ?>
-                <div class="mainDiary__diary--contents">
-                    <?php if( has_post_thumbnail() ): ?>   
-                        <?php 
-                        the_post_thumbnail(
-                            [ 
-                                200, 200 
-                            ],
-                            [
-                                'class' => "mainDiary__diary--logo"
-                            ]
-                         ); 
-                        ?>         
-                    <?php else: ?>
-                        <img class="mainDiary__diary--logo" src="<?php echo get_template_directory_uri(); ?>/img/top/NoImage.jpg"/>
-                    <?php endif; ?>
-                    <div class="mainDiary__diary--title">
-                        <?php the_title(); ?>
+                    <div class="mainDiary__diary--contents">
+                        <?php if( has_post_thumbnail() ): ?>   
+                            <?php 
+                            the_post_thumbnail(
+                                [ 
+                                    200, 200 
+                                ],
+                                [
+                                    'class' => "mainDiary__diary--logo"
+                                ]
+                            ); 
+                            ?>         
+                        <?php else: ?>
+                            <img class="mainDiary__diary--logo" src="<?php echo get_template_directory_uri(); ?>/img/top/NoImage.jpg"/>
+                        <?php endif; ?>
+                        <div class="mainDiary__diary--title">
+                            <?php the_title(); ?>
+                        </div>
+                        <div class="mainDiary__diary--sentence">
+                            <?php the_excerpt(); ?>
+                        </div>
+                        <?php $i = 0; ?>
+                        <?php if( $i < 2 ): ?>
+                            <div class="mainDiary__diary--separator"></div>
+                            <?php $i = $i + 1; ?>
+                        <?php endif; ?>
                     </div>
-                    <div class="mainDiary__diary--sentence">
-                        <?php the_excerpt(); ?>
-                    </div>
-                    <?php $i = 0; ?>
-                    <?php if( $i < 2 ): ?>
-                        <div class="mainDiary__diary--separator"></div>
-                        <?php $i = $i + 1; ?>
-                    <?php endif; ?>
-                </div>
                 <?php endwhile; ?>
                 <?php else : ?>
-                <div class="diaryContents__noCongtentsMessage__background">
-                    <div class="diaryContents__noCongtentsMessage--frame">
+                    <div class="mainDiary__diary--contents" style="text-align:center">
                         現在は掲載中のダイアリーは御座いません。
                     </div>
-                </div>
                 <?php endif; ?>
                 <a class="mainDiary__moreButton" href="<?php echo esc_url( home_url( 'index.php/category/diary/' ) ); ?>">more</a>
             </div>
@@ -132,10 +148,12 @@ and open the template in the editor.
                 <a class="mainDiary__moreButton" href="https://twitter.com/c_a_c_official" target="blank">more</a>
             </div>
         </div>
-
         <!-- end main contents -->
+
+        <!-- footer.phpを読み込む -->
         <?php get_footer(); ?>
-        <?php wp_footer(); ?><!--システム・プラグイン用-->
-        
+
+        <!--システム・プラグイン用-->
+        <?php wp_footer(); ?>
     </body>
 </html>

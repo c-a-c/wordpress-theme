@@ -4,6 +4,21 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+
+<!-- 
+Theme Name  : C.A.C.Web
+Author      : Keisuke Ikeda, Naoki Okamoto, Hikaru Suzuki
+Date        : 2020/06/07 (created：2017)
+Description : original theme
+Version     ： 1.0.0 
+-->
+
+<?php
+/**
+ Template Name: メディア
+*/
+?>
+
 <html>
     <head>
         <title>メディア | C.A.C. | 京都産業大学 文化団体連盟所属 電子計算機応用部</title>
@@ -29,7 +44,7 @@ and open the template in the editor.
     </head>
     <body>
 
-        <?php get_header("other"); ?>
+        <?php get_header("mini"); ?>
 
         <div class="mediaBackgroundImage"></div>
         <div class="subPageHeader" style="background-color: rgba(255, 255, 255, 0.8);">
@@ -104,8 +119,11 @@ and open the template in the editor.
             </div>
         </div>
         <!-- end main contents -->
+        
+        <!-- footer.phpを読み込む -->
         <?php get_footer(); ?>
-        <?php wp_footer(); ?><!--システム・プラグイン用-->
 
+        <!--システム・プラグイン用-->
+        <?php wp_footer(); ?>
     </body>
 </html>

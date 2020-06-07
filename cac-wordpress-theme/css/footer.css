@@ -1,6 +1,7 @@
 /* 
     Created on : 2017/05/17, 2:27:34
-    Author     : okamoto
+    Date       : 2020/06/07
+    Author     : okamoto, Ikeda
 */
 
 .footer {
@@ -38,6 +39,7 @@
 
 a.footer__contents--link:hover {
     color: #0096ff;
+    text-decoration: none;
 }
 
 .footer__copyright {

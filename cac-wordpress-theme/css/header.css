@@ -1,6 +1,7 @@
 /* 
     Created on : 2017/05/16, 22:28:11
-    Author     : okamoto
+    Date       : 2020/06/07
+    Author     : okamoto, Ikeda
 */
 
 ul {
@@ -78,6 +79,7 @@ td {
 
 .header__Link:hover {
     color: #0096ff;
+    text-decoration: none;
 }
 
 .miniHeader {
