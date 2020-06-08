@@ -20,6 +20,7 @@ mv env/db.env-template env/db.env
 ```
 
 ### コンテナ起動  
+`docker`ディレクトリに移動し、
 `docker-compose up -d` を実行した後、  
 [http://localhost:8080](http://localhost:8080)にアクセスする。
 
