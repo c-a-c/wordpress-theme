@@ -61,6 +61,13 @@ Version     ： 1.0.0
         <div class="announceContents__background">
             <div class="announceContents__cell--frame">
                 <div class="announceContents__noCongtentsMessage__background">
+                    <div class="mediaContents__cell--frame">
+                        <div class="mediaContents__cell--base">
+                            <div class="mediaContents__cell--img" style="background-image: url('./img/media/mediaImage_2017_ISCA.png');"></div>
+                            <div class="mediaContents__cell--title">次回LT大会開催日決定</div>
+                            <div class="mediaContents__cell--discription">LT大会すっぞ</div>
+                        </div>
+                    </div>
                     <div class="announceContents__noCongtentsMessage--frame">
                         現在は掲載中の告知は御座いません。
                     </div>

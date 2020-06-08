@@ -78,50 +78,53 @@ Version     ： 1.0.0
                 
                 <div class="eachDiaryContents--sentence">
                     <h2 class="diary">最新記事一覧</h2>
-                    <?php query_posts('posts_per_page=12&category_name=ダイアリー'); ?>
                     
                     <?php if(have_posts()): while(have_posts()): the_post(); ?>
-                    <div <?php post_class( "diaryContents__cell--frame" ); ?>> 
-                        <!-- メイン画像を指定 -->     
-                        <?php if( has_post_thumbnail() ): ?>
-                            <?php
-                            the_post_thumbnail(
-                                [
-                                    500, 380
-                                ],
-                                [
-                                    'class' => "diaryContents__cell--img"
-                                ]
-                            );
-                            ?>
-                        <?php else: ?>
-                            <img class="diaryContents__cell--img" src="<?php echo get_template_directory_uri(); ?>/img/diary/NoImage.jpg"/>
-                        <?php endif; ?>
-                        <!-- カテゴリを指定（複数可） -->
-                        <div class="diaryContents__cell--categoryFrame">
-                            <?php if (!is_category()): ?>
-                                <?php if( has_category() ): ?>
-                                    <a class="diaryContents__cell_categoryCell">
-                                        <?php $postcat=get_the_category(); echo $postcat[0]->name; ?>
-                                    </a>
+                        <?php
+                            $the_query = new WP_Query( 'category_name=ダイアリー' );
+                            while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                        ?>
+                            <div class="diaryContents__cell--frame"> 
+                                <!-- メイン画像を指定 -->     
+                                <?php if( has_post_thumbnail() ): ?>
+                                    <?php
+                                    the_post_thumbnail(
+                                        [
+                                            500, 380
+                                        ],
+                                        [
+                                            'class' => "diaryContents__cell--img"
+                                        ]
+                                    );
+                                    ?>
+                                <?php else: ?>
+                                    <img class="diaryContents__cell--img" src="<?php echo get_template_directory_uri(); ?>/img/diary/NoImage.jpg"/>
                                 <?php endif; ?>
-                            <?php endif; ?>
-                        </div>
-                        
-                        <!-- タイトルを指定 -->
-                        <a href=""><h1 class="cellTitle"><?php the_title(); ?></h1></a>
-                        
-                        <!-- タグを指定（複数可） -->
-                        <a href="" class="diaryContents__cell--tag">
-                            <?php the_tags(''); ?>
-                        </a>
-                        
-                        <!-- 文章の一部 -->
-                        <p class="diary"><?php the_excerpt(); ?></p>
-                        
-                    </div>
-                    <?php endwhile; ?>
-                    <?php else : ?>
+                                <!-- カテゴリを指定（複数可） -->
+                                <div class="diaryContents__cell--categoryFrame">
+                                    <?php if (!is_category()): ?>
+                                        <?php if( has_category() ): ?>
+                                            <a class="diaryContents__cell_categoryCell">
+                                                <?php $postcat=get_the_category(); echo $postcat[0]->name; ?>
+                                            </a>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                </div>
+                                
+                                <!-- タイトルを指定 -->
+                                <a href=""><h1 class="cellTitle"><?php the_title(); ?></h1></a>
+                                
+                                <!-- タグを指定（複数可） -->
+                                <a href="" class="diaryContents__cell--tag">
+                                    <?php the_tags(''); ?>
+                                </a>
+                                
+                                <!-- 文章の一部 -->
+                                <p class="diary"><?php the_excerpt(); ?></p>
+                                
+                            </div>
+                        <?php endwhile; wp_reset_postdata(); ?> 
+                    <?php endwhile; else : ?>
                     <div class="diaryContents__noCongtentsMessage__background">
                         <div class="diaryContents__noCongtentsMessage--frame">
                             現在は掲載中のダイアリーは御座いません。

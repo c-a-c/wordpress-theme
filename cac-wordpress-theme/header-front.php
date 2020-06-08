@@ -28,14 +28,20 @@ Version     ： 1.0.0
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <ul id="menu" class="collapse navbar-collapse justify-content-center">
-                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header__Link">ホーム</a></li>
-                    <li><a href="index.php/about" class="header__Link">弊団体について</a></li>
-                    <li><a href="index.php/project" class="header__Link">プロジェクト</a></li>
-                    <li><a href="index.php/announce" class="header__Link">告知</a></li>
-                    <li><a href="index.php/diary" class="header__Link">ダイアリー</a></li>
-                    <li><a href="index.php/media" class="header__Link">メディア</a></li>
-                </ul>
+                <?php 
+                    apply_filters('header_front_tag', 0, 0);
+                    wp_nav_menu(
+                        [
+                            'menu' => 'header-front',
+                            'menu_class' => 'collapse navbar-collapse justify-content-center',
+                            'menu_id' => 'menu',
+                            'container' => false,
+                            'container_class' => '',
+                            'container_id' => '',
+                            'theme_locaution' => 'header-nav'
+                        ] 
+                    ); 
+                ?>
             </nav>
         </div>  
     </header>

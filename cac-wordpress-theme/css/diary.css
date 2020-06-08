@@ -5,7 +5,8 @@ and open the template in the editor.
 */
 /* 
     Created on : 2017/05/28, 22:23:27
-    Author     : okamoto
+    Date       : 2020/06/07
+    Author     : okamoto, Keisuke Ikeda
 */
 
 
@@ -184,6 +185,7 @@ h1.cellTitle:hover {
 }
 .diaryContents__menuBar--cell:hover {
     background-color: #0096ff;
+    text-decoration: none;
 }
 
 

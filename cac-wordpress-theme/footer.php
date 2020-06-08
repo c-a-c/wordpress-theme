@@ -19,12 +19,21 @@ Version     ： 1.0.0
         <div class="footer">
             <!-- ナビゲーションとコピーライトの表示 -->
             <div class="footer__contents">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="footer__contents--link">ホーム</a>
-                <a href="index.php/about" class="footer__contents--link">弊団体について</a>
-                <a href="index.php/project" class="footer__contents--link">プロジェクト</a>
-                <a href="index.php/announce" class="footer__contents--link">告知</a>
-                <a href="index.php/diary" class="footer__contents--link">ダイアリー</a>
-                <a href="index.php/media" class="footer__contents--link">メディア</a>
+                <?php 
+                    apply_filters('footer_tag', 0, 0);
+                    wp_nav_menu(
+                        [
+                            'menu' => 'footer',
+                            'menu_class' => '',
+                            'menu_id' => 'menu',
+                            'container' => false,
+                            'container_class' => '',
+                            'container_id' => '',
+                            'theme_locaution' => 'footer-nav',
+                            'items_wrap' => '%3$s'
+                        ] 
+                    ); 
+                ?>
                 <div class="footer__copyright">
                     Copyright &copy; Computer Applications Club All Rights Reserved.
                 </div>

@@ -8,7 +8,7 @@ and open the template in the editor.
 <!-- 
 Theme Name  : C.A.C.Web
 Author      : Keisuke Ikeda, Naoki Okamoto, Hikaru Suzuki
-Date        : 2020/06/07 (created：2017)
+Date        : 2020/06/08 (created：2017)
 Description : original theme
 Version     ： 1.0.0 
 -->
@@ -102,41 +102,51 @@ Version     ： 1.0.0
             <div class="mainDiary__separater"></div>
             <div class="mainDiary__diary">
                 <div class="mainDiary__title">Diary</div>
-                <?php query_posts('posts_per_page=3&category_name=diary'); ?>
-                <?php if(have_posts()): while(have_posts()): the_post(); ?>
+                <!-- PHPのループ開始　-->
+                <!-- カテゴリ-「ダイアリー」の投稿を最新３件表示 -->
+                <?php $index = 0; ?>
+                <?php
+                    $the_query = new WP_Query([
+                        'category_name' => 'ダイアリー', //カテゴリー名の指定
+                        'posts_per_page' => '3'        //表示する件数を指定
+                    ]);
+                    if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                ?>
                     <div class="mainDiary__diary--contents">
+                        <!-- サムネイルの表示 -->
                         <?php if( has_post_thumbnail() ): ?>   
                             <?php 
                             the_post_thumbnail(
                                 [ 
-                                    200, 200 
+                                    200, 200                             //サムネイル画像の大きさを指定
                                 ],
                                 [
-                                    'class' => "mainDiary__diary--logo"
+                                    'class' => "mainDiary__diary--logo"  //サムネイルのクラスを指定
                                 ]
                             ); 
                             ?>         
                         <?php else: ?>
                             <img class="mainDiary__diary--logo" src="<?php echo get_template_directory_uri(); ?>/img/top/NoImage.jpg"/>
                         <?php endif; ?>
+                        <!-- 記事タイトルの表示 -->
                         <div class="mainDiary__diary--title">
                             <?php the_title(); ?>
                         </div>
+                        <!-- 記事本文の一部を表示 -->
                         <div class="mainDiary__diary--sentence">
                             <?php the_excerpt(); ?>
                         </div>
-                        <?php $i = 0; ?>
-                        <?php if( $i < 2 ): ?>
+                        <!-- セパレータの表示 -->
+                        <?php if( $index < 2 ): ?>
                             <div class="mainDiary__diary--separator"></div>
-                            <?php $i = $i + 1; ?>
-                        <?php endif; ?>
+                        <?php $index++; endif; ?>
                     </div>
-                <?php endwhile; ?>
-                <?php else : ?>
+                <?php endwhile; else : ?>
                     <div class="mainDiary__diary--contents" style="text-align:center">
                         現在は掲載中のダイアリーは御座いません。
                     </div>
-                <?php endif; ?>
+                <?php endif; wp_reset_postdata(); ?>
+                <!-- PHPのループ終了　-->
                 <a class="mainDiary__moreButton" href="<?php echo esc_url( home_url( 'index.php/category/diary/' ) ); ?>">more</a>
             </div>
             <div class="mainDiary__twitter">

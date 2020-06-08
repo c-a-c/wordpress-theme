@@ -15,18 +15,23 @@ add_filter( 'show_admin_bar', '__return_false' );
 //カスタムメニュー
 add_theme_support( 'menus' );
 register_nav_menu( 'header-nav',  ' ヘッダーナビゲーション ' );
+register_nav_menu( 'footer-nav',  ' フッターナビゲーション ' );
 register_nav_menu( 'diary-nav',  ' ダイアリーナビゲーション ' );
 
-//JSファイルのインポート
-function my_scripts() {
-  wp_enqueue_style( 'style-name', get_template_directory_uri() . 'style.css', array(), '1.0.0', 'all' );
-  wp_deregister_script('jquery');
-  wp_enqueue_script( 'script-name', get_template_directory_uri() . 'js/jquery.easing.1.3.js', array( 'jquery' ), '1.0.0', true );
-  wp_enqueue_script( 'script-name', get_template_directory_uri() . 'js/jqueryColorPlugin.js', array( 'jquery' ), '1.0.0', true );
-  wp_enqueue_script( 'script-name', get_template_directory_uri() . 'js/main.js', array( 'jquery' ), '1.0.0', true );
-  wp_enqueue_script( 'script-name', get_template_directory_uri() . 'js/project.js', array( 'jquery' ), '1.0.0', true );
+/**
+ * JSファイルをロードする関数
+ */
+function loadJavaScriptFile() {
+    wp_enqueue_style( 'style-name', get_template_directory_uri() . 'style.css', array(), '1.0.0', 'all' );
+    wp_deregister_script('jquery');
+    wp_enqueue_script( 'script-name', get_template_directory_uri() . 'js/jquery.easing.1.3.js', array( 'jquery' ), '1.0.0', true );
+    wp_enqueue_script( 'script-name', get_template_directory_uri() . 'js/jqueryColorPlugin.js', array( 'jquery' ), '1.0.0', true );
+    wp_enqueue_script( 'script-name', get_template_directory_uri() . 'js/main.js', array( 'jquery' ), '1.0.0', true );
+    wp_enqueue_script( 'script-name', get_template_directory_uri() . 'js/project.js', array( 'jquery' ), '1.0.0', true );
 }
-add_action( 'wp_enqueue_scripts', 'my_scripts' );
+
+//loadJavaScriptFile関数を実行する
+add_action( 'wp_enqueue_scripts', 'loadJavaScriptFile' );
 
 
 // 人気記事出力用
@@ -55,39 +60,97 @@ function setPostViews($postID) {
 }
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
-function pagination($pages = '', $range = 1)
-{
-     $showitems = ($range * 2)+1;  
- 
-     global $paged;
-     if(empty($paged)) $paged = 1;
- 
-     if($pages == '')
-     {
-         global $wp_query;
-         $pages = $wp_query->max_num_pages;
-         if(!$pages)
-         {
-             $pages = 1;
-         }
-     }   
- 
-     if(1 != $pages)
-     {
-         echo "<div class=\"pagination\"><div class=\"pagination-box\"><span class=\"page-of\">Page ".$paged." of ".$pages."</span>";
-         if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo;</a>";
-         if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'>&lsaquo;</a>";
- 
-         for ($i=1; $i <= $pages; $i++)
-         {
-             if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
-             {
-                 echo ($paged == $i)? "<span class=\"current\">".$i."</span>":"<a href='".get_pagenum_link($i)."' class=\"inactive\">".$i."</a>";
-             }
-         }
- 
-         if ($paged < $pages && $showitems < $pages) echo "<a href=\"".get_pagenum_link($paged + 1)."\">&rsaquo;</a>";
-         if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>&raquo;</a>";
-         echo "</div></div>\n";
-     }
+add_filter('header_front_tag', 'aaa', 10, 0);
+add_filter('header_mini_tag', 'ccc', 10, 0);
+add_filter('footer_tag', 'bbb', 10, 0);
+
+function aaa(){
+    add_filter('walker_nav_menu_start_el', 'add_class_on_link_1', 10, 5);
+    return 0;
+}
+
+function bbb(){
+    add_filter('walker_nav_menu_start_el', 'add_class_on_link_2', 10, 5);
+    return 0;
+}
+
+function ccc(){
+    add_filter('walker_nav_menu_start_el', 'add_class_on_link_3', 10, 5);
+    return 0;
+}
+
+function add_class_on_link_1($item_output, $item, $depth, $args){
+    return preg_replace('/(<a.*?)/', '$1' . " class='header__Link'", $item_output);
+}
+
+function add_class_on_link_2($item_output, $item, $depth, $args){
+    return preg_replace('/(<a.*?)/', '$1' . " class='footer__contents--link'", $item_output);
+}
+
+function add_class_on_link_3($item_output, $item, $depth, $args){
+    return preg_replace('/(<a.*?)/', '$1' . " class='miniHeader__Link'", $item_output);
+}
+
+// footer__contents--link miniHeader__Link
+
+/**
+* ページネーション出力関数
+* $paged : 現在のページ
+* $pages : 全ページ数
+* $range : 左右に何ページ表示するか
+* $show_only : 1ページしかない時に表示するかどうか
+*/
+function pagination( $pages, $paged, $range = 2, $show_only = false ) {
+
+    $pages = ( int ) $pages;    //float型で渡ってくるので明示的に int型 へ
+    $paged = $paged ?: 1;       //get_query_var('paged')をそのまま投げても大丈夫なように
+
+    //表示テキスト
+    $text_first   = "« First";
+    $text_before  = "‹ Prev";
+    $text_next    = "Next ›";
+    $text_last    = "Last »";
+
+    if ( $show_only && $pages === 1 ) {
+        // １ページのみで表示設定が true の時
+        echo '<div class="pagination"><span class="current pager">1</span></div>';
+        return;
+    }
+
+    if ( $pages === 1 ) return;    // １ページのみで表示設定もない場合
+
+    if ( 1 !== $pages ) {
+        //２ページ以上の時
+        echo '<div class="pagination"><span class="page_num">Page ', $paged ,' of ', $pages ,'</span>';
+        if ( $paged > $range + 1 ) {
+            // 「最初へ」 の表示
+            
+            echo '<a href="', get_pagenum_link(1) ,'" class="first">', $text_first ,'</a>';
+        }
+        if ( $paged > 1 ) {
+            // 「前へ」 の表示
+            echo '<a href="', get_pagenum_link( $paged - 1 ) ,'" class="prev">', $text_before ,'</a>';
+        }
+        for ( $i = 1; $i <= $pages; $i++ ) {
+
+            if ( $i <= $paged + $range && $i >= $paged - $range ) {
+                // $paged +- $range 以内であればページ番号を出力
+                if ( $paged === $i ) {
+                    echo '<span class="current pager">', $i ,'</span>';
+                } else {
+                    echo '<a href="', get_pagenum_link( $i ) ,'" class="pager">', $i ,'</a>';
+                }
+            }
+
+        }
+        if ( $paged < $pages ) {
+            // 「次へ」 の表示
+            echo '<a href="', get_pagenum_link( $paged + 1 ) ,'" class="next">', $text_next ,'</a>';
+        }
+        if ( $paged + $range < $pages ) {
+            // 「最後へ」 の表示
+            echo '<a href="', get_pagenum_link( $pages ) ,'" class="last">', $text_last ,'</a>';
+        }
+        echo '</div>';
+    }
 }

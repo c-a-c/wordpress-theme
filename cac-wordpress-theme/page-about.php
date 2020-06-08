@@ -8,7 +8,7 @@ and open the template in the editor.
 <!-- 
 Theme Name  : C.A.C.Web
 Author      : Keisuke Ikeda, Naoki Okamoto, Hikaru Suzuki
-Date        : 2020/06/07 (created：2017)
+Date        : 2020/06/07 (created：2018/10)
 Description : original theme
 Version     ： 1.0.0 
 -->

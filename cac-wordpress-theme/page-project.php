@@ -50,7 +50,7 @@ Version     ： 1.0.0
         <?php wp_head(); ?>
     </head>
     <body>
-        
+        <!-- header-mini.phpを読み込む -->
         <?php get_header("mini"); ?>
         
         <div class="projectBackgroundImage"></div>
@@ -63,58 +63,61 @@ Version     ： 1.0.0
             </div>
         </div>
         
-        <!-- end header, start main contents -->
+        <!-- start main contents -->
         <div class="projectContents__background">
             <div class="projectContents__background--frame">
-
+                <!-- PHPのループ開始　-->
                 <!-- カテゴリ名「プロジェクト」の投稿一覧を表示 -->
-                <?php query_posts('posts_per_page=12&category_name=プロジェクト'); ?>
-                
-                <?php if(have_posts()): while(have_posts()): the_post(); ?>
-                    
-                <a href="" <?php post_class( "projectContents__cell--base" ); ?>onmouseover="hoverProjectContents(true, this);" onmouseout="hoverProjectContents(false, this);">
-                    <!--画像を追加-->
-                    <?php if( has_post_thumbnail() ): ?>
-                        <div class="projectContents__cell--imgBlur" style="background-image: url(<?php the_post_thumbnail_url(array( 495, 380 ) ); ?>);">
-                            <div class="projectContents__cell--readMoreButton">ReadMore</div>
-                            <div class="projectContents__cell--img" style="background-image: url(<?php the_post_thumbnail_url(array( 495, 380 ) ); ?>);"></div>
-                        </div>
-                    <?php else: ?>
-                        <div class="projectContents__cell--imgBlur" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/project/NoImage.jpg');">
-                            <div class="projectContents__cell--readMoreButton">ReadMore</div>
-                            <div class="projectContents__cell--img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/project/NoImage.jpg');"></div>
-                        </div>
-                    <?php endif; ?>
-                    <!--タイトル-->
-                    <div class="projectContents__cell--title" style="text-decoration:none;">
-                        <?php the_title(); ?>
-                    </div>
-                    <!--投稿日を表示-->
-                    <div class="projectContents__cell--discription"　style="text-decoration:none;">
-                        <time datetime="<?php echo get_the_date( 'Y' ); ?>">
-                            <?php echo get_the_date( 'Y'); ?>
-                        </time>
-                        <nobr>/</nobr>
-                        <?php if(has_tag()==true) : ?>
-                            <?php
-                            foreach((get_the_tags()) as $tag) {
-                            echo $tag->name . ' ';
-                            }
-                            ?>
-                        <?php else : ?>
-                            <nobr>--</nobr>
+                <?php
+                    $the_query = new WP_Query([
+                        'category_name' => 'プロジェクト' //カテゴリー名の指定
+                    ]);
+                    if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                ?>
+                    <a href="" class="projectContents__cell--base" onmouseover="hoverProjectContents(true, this);" onmouseout="hoverProjectContents(false, this);">
+                        <!-- サムネイルの表示 -->
+                        <?php if( has_post_thumbnail() ): ?>
+                            <div class="projectContents__cell--imgBlur" style="background-image: url(<?php the_post_thumbnail_url(array( 495, 380 ) ); ?>);">
+                                <div class="projectContents__cell--readMoreButton">ReadMore</div>
+                                <div class="projectContents__cell--img" style="background-image: url(<?php the_post_thumbnail_url(array( 495, 380 ) ); ?>);"></div>
+                            </div>
+                        <?php else: ?>
+                            <div class="projectContents__cell--imgBlur" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/project/NoImage.jpg');">
+                                <div class="projectContents__cell--readMoreButton">ReadMore</div>
+                                <div class="projectContents__cell--img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/project/NoImage.jpg');"></div>
+                            </div>
                         <?php endif; ?>
+                        <!--　記事タイトルの表示　-->
+                        <div class="projectContents__cell--title" style="text-decoration:none;">
+                            <?php the_title(); ?>
+                        </div>
+                        <!--　投稿日とタグを表示　-->
+                        <div class="projectContents__cell--discription"　style="text-decoration:none;">
+                            <!-- 投稿日の表示 -->
+                            <time datetime="<?php echo get_the_date(  ); ?>">
+                                <?php echo get_the_date( 'Y-m-d' ); ?>
+                            </time>
+                            <nobr>/</nobr>
+                            <!-- タグの表示 -->
+                            <?php if(has_tag()==true) : ?>
+                                <?php
+                                foreach((get_the_tags()) as $tag) {
+                                echo $tag->name . ' ';
+                                }
+                                ?>
+                            <?php else : ?>
+                                <nobr>--</nobr>
+                            <?php endif; ?>
+                        </div>
+                    </a>
+                <?php endwhile; else : ?>	
+                    <div class="projectContents__noCongtentsMessage__background">
+                        <div class="projectContents__noCongtentsMessage--frame">
+                            現在は掲載中のプロジェクトは御座いません。
+                        </div>
                     </div>
-                </a>
-                
-                <?php endwhile; ?>
-                <?php else : ?>
-                  <div class="projectContents__noCongtentsMessage__background">
-                      <div class="projectContents__noCongtentsMessage--frame">
-                          現在は掲載中のプロジェクトは御座いません。
-                      </div>
-                  </div>
-                <?php endif; ?>
+                <?php endif; wp_reset_postdata(); ?>
+                <!-- PHPのループ終了　-->
                 
                 <div class="projectContents__pageMenu--frame">
                     <div class="projectContents__pageMenu--back">

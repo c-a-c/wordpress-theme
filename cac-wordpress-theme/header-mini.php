@@ -19,13 +19,27 @@ Version     ： 1.0.0
         <div class="miniHeader">
             <div class="miniHeader__cacLogo" style="cursor: pointer;" onclick="location.href ='<?php echo esc_url( home_url( '/' ) ); ?>'" ></div>
             <div style="text-align: right; margin-right: 30px" >
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="miniHeader__Link">ホーム</a>
-                <a href="index.php/about" class="miniHeader__Link">弊団体について</a>
-                <a href="index.php/project" class="miniHeader__Link">プロジェクト</a>
+                <?php 
+                    apply_filters('header_mini_tag', 0, 0);
+                    wp_nav_menu(
+                        [
+                            'menu' => 'header-mini',
+                            'menu_class' => '',
+                            'menu_id' => 'menu',
+                            'container' => false,
+                            'container_class' => '',
+                            'container_id' => '',
+                            'theme_locaution' => 'header-nav',
+                            'items_wrap' => '%3$s'
+                        ] 
+                    ); 
+                ?>
+                <!-- <a href="index.php/project" class="miniHeader__Link">プロジェクト</a>
                 <a href="index.php/announce" class="miniHeader__Link">告知</a>
                 <a href="index.php/diary" class="miniHeader__Link">ダイアリー</a>
-                <a href="index.php/media" class="miniHeader__Link">メディア</a>
+                <a href="index.php/media" class="miniHeader__Link">メディア</a> -->
             </div>
+            
         </div>
     </header>
 </html>
