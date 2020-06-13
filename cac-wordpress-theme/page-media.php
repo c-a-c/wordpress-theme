@@ -8,7 +8,7 @@ and open the template in the editor.
 <!-- 
 Theme Name  : C.A.C.Web
 Author      : Keisuke Ikeda, Naoki Okamoto, Hikaru Suzuki
-Date        : 2020/06/07 (created：2017)
+Date        : 2020/06/13 (created：2017)
 Description : original theme
 Version     ： 1.0.0 
 -->
@@ -39,26 +39,29 @@ Version     ： 1.0.0
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-        <?php wp_head(); ?><!--システム・プラグイン用-->
-
+        <!--システム・プラグイン用-->
+        <?php wp_head(); ?>  
     </head>
     <body>
-
+        <!-- header-mini.phpを読み込む -->
         <?php get_header("mini"); ?>
 
+        <!-- メディアのトップ画像 -->
         <div class="mediaBackgroundImage"></div>
+
+        <!-- メディアの説明 -->
         <div class="subPageHeader" style="background-color: rgba(255, 255, 255, 0.8);">
-        <div class="subPageTitle" style="color: #545454;">
-            メディア
-        </div>
-        <div class="subPageSentence" style="color: #545454;">
-            弊団体が出場したコンテストや、取り上げられた媒体についての紹介を行います。
-        </div>
+            <div class="subPageTitle" style="color: #545454;">
+                メディア
+            </div>
+            <div class="subPageSentence" style="color: #545454;">
+                弊団体が出場したコンテストや、取り上げられた媒体についての紹介を行います。
+            </div>
         </div>
 
-        <!-- tart main contents -->
-        <div class="mediaContents__background">
-            <div class="mediaContents__cell--frame">
+        <!-- start main contents -->
+        <div class="announceContents__background">
+            <div class="announceContents__cell--frame">
                 <!-- PHPのループ開始　-->
                     <!-- カテゴリ名「メディア」の投稿一覧を表示 -->
                     <?php

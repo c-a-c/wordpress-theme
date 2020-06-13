@@ -40,8 +40,7 @@ Version     ： 1.0.0
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         
         <!--システム・プラグイン用-->
-        <?php wp_head(); ?>
-        
+        <?php wp_head(); ?>  
     </head>
     <body>
         <!-- header-mini.phpを読み込む -->
@@ -59,15 +58,68 @@ Version     ： 1.0.0
                 弊団体が出場・企画するイベント等の告知を行います。
             </div>
         </div>
-        
+
         <!-- start main contents -->
-        <div class="announceContents__background">
-            <div class="announceContents__cell--frame">
-                <div class="announceContents__noCongtentsMessage__background">
-                    <div class="announceContents__noCongtentsMessage--frame">
-                        現在は掲載中の告知は御座いません。
-                    </>
-                </div>
+        <div class="mediaContents__background">
+            <div class="mediaContents__cell--frame">
+                <!-- PHPのループ開始　-->
+                    <!-- カテゴリ名「告知」の投稿一覧を表示 -->
+                    <?php
+                        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                        $the_query = new WP_Query([
+                            'category_name' => '告知', //カテゴリー名の指定
+                            'posts_per_page' => 6,
+                            'paged' => $paged
+                        ]);
+                        if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
+                    ?>
+                        <div <?php post_class( 'mediaContents__cell--base' ); ?>>   
+                            <!--画像を追加-->
+                            <?php if( has_post_thumbnail() ): ?>
+                            <?php 
+                            the_post_thumbnail(
+                                [
+                                    260, 200
+                                ],
+                                [
+                                    'class' => "mediaContents__cell--img"
+                                ]
+                            ); 
+                            ?>   
+                            <?php else: ?>
+                                <div class="mediaContents__cell--img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/announce/NoImage.jpg');"></div>
+                            <?php endif; ?>
+                            <div>
+                                <!--タイトル-->
+                                <div class="mediaContents__cell--title"><?php the_title(); ?></div>
+                                <!--抜粋--><!--投稿日を表示-->
+                                <div class="mediaContents__cell--discription">
+                                    <time datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
+                                        <?php echo get_the_date(); ?>
+                                    </time>
+                                    <?php the_excerpt(); ?>
+                                </div>
+                            </div>
+                        </div>
+                <?php endwhile; else : ?>
+                    <div class="mediaContents__noCongtentsMessage__background">
+                        <div class="mediaContents__noCongtentsMessage--frame">
+                            現在は掲載中の告知は御座いません。
+                        </div>
+                    </div>
+                <?php endif; wp_reset_postdata(); ?>
+                <!-- PHPのループ終了　-->
+
+                <!-- ページネーションの表示 -->
+                <div class="mediaContents__pageMenu--frame">
+                    <div class="mediaContents__pageMenu--back">
+                        <?php
+                            if ( function_exists( 'pagination' ) ) :
+                                pagination( $the_query->max_num_pages, get_query_var( 'paged' ), 2);
+                            endif; 
+                        ?> 
+                    </div>
+                </div>  
             </div>
         </div>
         <!-- end main contents -->
