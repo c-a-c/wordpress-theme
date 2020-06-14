@@ -91,8 +91,8 @@ Version     ： 1.0.0
                     <?php
                         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                         $the_query = new WP_Query([
-                            'category_name' => 'プロジェクト&&ダイアリー', //カテゴリー名の指定
-                            'posts_per_page' => 6,        　　　　　　　  //1ページに表示する投稿数
+                            'category_name' => 'プロジェクト進捗', //カテゴリー名の指定
+                            'posts_per_page' => 6,          //1ページに表示する投稿数
                             'paged' => $paged
                         ]);
                         if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -130,7 +130,7 @@ Version     ： 1.0.0
                                 <?php the_tags(''); ?>
                             </a>
                             <!-- 文章の一部を表示 -->
-                            <p class="diary"><?php the_excerpt(); ?></p>
+                            <p class="diary"><?php add_new_line_on_except( get_the_excerpt(), 23); ?></p>
                         </div>
                     <?php endwhile; else : ?>
                         <div class="diaryContents__noCongtentsMessage__background">

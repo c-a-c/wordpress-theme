@@ -27,12 +27,6 @@ Version     ： 1.0.0
 
         <!-- links for css-->
         <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" />
-        
-        <!-- links for javascript -->
-        <script src="js/main.js" type="text/javascript"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
-        <script src="js/jqueryColorPlugin.js" type="text/javascript"></script>
 
         <!-- import fonts -->
         <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
@@ -134,7 +128,7 @@ Version     ： 1.0.0
                         </div>
                         <!-- 記事本文の一部を表示 -->
                         <div class="mainDiary__diary--sentence">
-                            <?php the_excerpt(); ?>
+                            <?php add_new_line_on_except( get_the_excerpt(), 30); ?>
                         </div>
                         <!-- セパレータの表示 -->
                         <?php if( $index < 2 ): ?>

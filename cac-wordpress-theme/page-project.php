@@ -27,13 +27,6 @@ Version     ： 1.0.0
         
         <!-- links for css-->
         <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" />
-        
-        <!-- links for JavaScript-->
-        <script src="../javascript/main.js" type="text/javascript"></script>
-        <script src="../javascript/project.js" type="text/javascript"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script src="../javascript/jquery.easing.1.3.js" type="text/javascript"></script>
-        <script src="../javascript/jqueryColorPlugin.js" type="text/javascript"></script>
 
         <!-- import fonts -->
         <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />

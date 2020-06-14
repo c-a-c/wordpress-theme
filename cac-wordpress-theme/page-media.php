@@ -98,7 +98,7 @@ Version     ： 1.0.0
                                         <?php echo get_the_date(); ?>
                                     </time><br>
                                     <!-- 文章の一部を表示 -->
-                                    <?php add_new_line_on_except( get_the_excerpt(), 75); ?>
+                                    <?php add_new_line_on_except( get_the_excerpt(), 48); ?>
                                 </div>
                             </div>
                         </div>

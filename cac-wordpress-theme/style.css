@@ -10,8 +10,29 @@
 @import "css/project.css";
 
 /*
-theme Name: C.A.C.Web
-Author: Keisuke Ikeda, Naoki Okamoto, Hikaru Suzuki
+Theme Name: C.A.C.Web
 Description: original theme
-version： 1.0.0
+Author: Keisuke Ikeda, Naoki Okamoto, Hikaru Suzuki
+Version： 1.0.0
+Tags:
 */
+
+
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+
+.wp-caption {
+}
+.wp-caption-text {
+}
+.gallery-caption {
+}

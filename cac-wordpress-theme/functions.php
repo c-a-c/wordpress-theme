@@ -1,12 +1,10 @@
-<!-- 
-Theme Name  : C.A.C.Web
-Author      : Keisuke Ikeda, Hikaru Suzuki
-Date        : 2020/06/13 (created：2017)
-Description : original theme
-Version     ： 1.0.0 
--->
-
 <?php
+
+// Theme Name  : C.A.C.Web
+// Author      : Keisuke Ikeda, Hikaru Suzuki
+// Date        : 2020/06/14 (created：2017)
+// Description : original theme
+// Version     ： 1.0.0 
 
 //テーマのセットアップ
 // titleタグをhead内に生成する
@@ -48,7 +46,6 @@ add_filter('diary_nav_tag', 'run_add_class_on_link_diary', 10, 0);
  */
 function load_javascript_file() 
 {
-    wp_enqueue_style( 'style-name', get_template_directory_uri() . 'style.css', array(), '1.0.0', 'all' );
     wp_deregister_script('jquery');
     wp_enqueue_script( 'script-name', get_template_directory_uri() . 'js/jquery.easing.1.3.js', array( 'jquery' ), '1.0.0', true );
     wp_enqueue_script( 'script-name', get_template_directory_uri() . 'js/jqueryColorPlugin.js', array( 'jquery' ), '1.0.0', true );
@@ -60,7 +57,7 @@ function load_javascript_file()
 * the_excerpt関数が表示する文字列を指定する関数
 */
 function custom_excerpt_length( $length ) {
-    return 364;	
+    return 229;	
 }
 
 /**
@@ -70,9 +67,7 @@ function custom_excerpt_length( $length ) {
  */
 function add_new_line_on_except( $except, $split_number)
 {
-    // PHP7.4ならこれでいいんだけどなー
-    // $array = str_split($except, $split_number); 
-    $array = str_split($except, $split_number); 
+    $array = mb_str_split($except, $split_number);
     echo '<a>';
     foreach( $array as $key => $a_string)
     {

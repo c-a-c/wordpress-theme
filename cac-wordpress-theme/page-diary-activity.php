@@ -130,7 +130,7 @@ Version     ： 1.0.0
                                 <?php the_tags(''); ?>
                             </a>
                             <!-- 文章の一部を表示 -->
-                            <p class="diary"><?php the_excerpt(); ?></p>
+                            <p class="diary"><?php add_new_line_on_except( get_the_excerpt(), 23); ?></p>
                         </div>
                     <?php endwhile; else : ?>
                         <div class="diaryContents__noCongtentsMessage__background">
