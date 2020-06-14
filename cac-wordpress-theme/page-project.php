@@ -8,7 +8,7 @@ and open the template in the editor.
 <!-- 
 Theme Name  : C.A.C.Web
 Author      : Keisuke Ikeda, Naoki Okamoto, Hikaru Suzuki
-Date        : 2020/06/07 (created：2017)
+Date        : 2020/06/13 (created：2017)
 Description : original theme
 Version     ： 1.0.0 
 -->
@@ -72,12 +72,15 @@ Version     ： 1.0.0
                 <!-- PHPのループ開始　-->
                 <!-- カテゴリ名「プロジェクト」の投稿一覧を表示 -->
                 <?php
+                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     $the_query = new WP_Query([
-                        'category_name' => 'プロジェクト' //カテゴリー名の指定
+                        'category_name' => 'プロジェクト', //カテゴリー名の指定
+                        'posts_per_page' => 12,          //1ページに表示する投稿数
+                        'paged' => $paged
                     ]);
                     if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
                 ?>
-                    <a href="" class="projectContents__cell--base" onmouseover="hoverProjectContents(true, this);" onmouseout="hoverProjectContents(false, this);">
+                    <a href="" class="projectContents__cell--base" onmouseover="hoverProjectContents(true, this);" onmouseout="hoverProjectContents(false, this);" style="text-decoration: none;">
                         <!-- サムネイルの表示 -->
                         <?php if( has_post_thumbnail() ): ?>
                             <div class="projectContents__cell--imgBlur" style="background-image: url(<?php the_post_thumbnail_url(array( 495, 380 ) ); ?>);">
@@ -91,11 +94,11 @@ Version     ： 1.0.0
                             </div>
                         <?php endif; ?>
                         <!--　記事タイトルの表示　-->
-                        <div class="projectContents__cell--title" style="text-decoration:none;">
+                        <div class="projectContents__cell--title">
                             <?php the_title(); ?>
                         </div>
                         <!--　投稿日とタグを表示　-->
-                        <div class="projectContents__cell--discription"　style="text-decoration:none;">
+                        <div class="projectContents__cell--discription">
                             <!-- 投稿日の表示 -->
                             <time datetime="<?php echo get_the_date(  ); ?>">
                                 <?php echo get_the_date( 'Y-m-d' ); ?>
@@ -121,23 +124,18 @@ Version     ： 1.0.0
                     </div>
                 <?php endif; wp_reset_postdata(); ?>
                 <!-- PHPのループ終了　-->
-                
+
+                <!-- ページネーションの表示 -->
                 <div class="projectContents__pageMenu--frame">
                     <div class="projectContents__pageMenu--back">
-                        <a class="projectContents__pageMenu--cellRecNotButton">1/20</a>
-                        <a class="projectContents__pageMenu--cellRec" style="background-color: #dddddd">&lt;&lt;Past</a>
-                        <a class="projectContents__pageMenu--cellSquare" style="background-color: #dddddd">1</a>
-                        <a href="" class="projectContents__pageMenu--cellSquare">2</a>
-                        <a href="" class="projectContents__pageMenu--cellSquare">3</a>
-                        <a href="" class="projectContents__pageMenu--cellSquare">4</a>
-                        <a href="" class="projectContents__pageMenu--cellSquare">5</a>
-                        <a href="" class="projectContents__pageMenu--cellSquare">6</a>
-                        <a href="" class="projectContents__pageMenu--cellSquare">..</a>
-                        <a href="" class="projectContents__pageMenu--cellRec">Next&gt;&gt;</a>
+                        <?php
+                            if ( function_exists( 'pagination' ) ) :
+                                pagination( $the_query->max_num_pages, get_query_var( 'paged' ), 2);
+                            endif; 
+                        ?> 
                     </div>
-                </div>
+                </div>   
             </div>
-            
         </div>
         <!-- end main contents -->
 

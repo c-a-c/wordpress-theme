@@ -8,7 +8,7 @@ and open the template in the editor.
 <!-- 
 Theme Name  : C.A.C.Web
 Author      : Keisuke Ikeda, Naoki Okamoto, Hikaru Suzuki
-Date        : 2020/06/08 (created：2017)
+Date        : 2020/06/13 (created：2017)
 Description : original theme
 Version     ： 1.0.0 
 -->
@@ -90,7 +90,12 @@ Version     ： 1.0.0
                     <!-- PHPのループ開始　-->
                     <!-- カテゴリ名「行事」の投稿一覧を表示 -->
                     <?php
-                        $the_query = new WP_Query( 'category_name=行事' );
+                        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                        $the_query = new WP_Query([
+                            'category_name' => '行事', //カテゴリー名の指定
+                            'posts_per_page' => 6,     //1ページに表示する投稿数
+                            'paged' => $paged
+                        ]);
                         if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
                     ?>
                         <div class="diaryContents__cell--frame"> 
@@ -99,10 +104,10 @@ Version     ： 1.0.0
                                 <?php
                                 the_post_thumbnail(
                                     [
-                                        500, 380
+                                        500, 380                              //サムネイル画像の大きさを指定
                                     ],
                                     [
-                                        'class' => "diaryContents__cell--img"
+                                        'class' => "diaryContents__cell--img" //サムネイルのクラスを指定
                                     ]
                                 );
                                 ?>
@@ -137,30 +142,27 @@ Version     ： 1.0.0
                     <?php endif; wp_reset_postdata(); ?>
                     <!-- PHPのループ終了　-->
                     
+                    <!-- ページネーションの表示 -->
                     <div class="projectContents__pageMenu--frame">
                         <div class="projectContents__pageMenu--back">
-                            <a class="projectContents__pageMenu--cellRecNotButton">1/20</a>
-                            <a class="projectContents__pageMenu--cellRec" style="background-color: #dddddd">&lt;&lt;Past</a>
-                            <a class="projectContents__pageMenu--cellSquare" style="background-color: #dddddd">1</a>
-                            <a href="" class="projectContents__pageMenu--cellSquare">2</a>
-                            <a href="" class="projectContents__pageMenu--cellSquare">3</a>
-                            <a href="" class="projectContents__pageMenu--cellSquare">4</a>
-                            <a href="" class="projectContents__pageMenu--cellSquare">5</a>
-                            <a href="" class="projectContents__pageMenu--cellSquare">6</a>
-                            <a href="" class="projectContents__pageMenu--cellSquare">..</a>
-                            <a href="" class="projectContents__pageMenu--cellRec">Next&gt;&gt;</a>
+                            <?php
+                                if ( function_exists( 'pagination' ) ) :
+                                    pagination( $the_query->max_num_pages, get_query_var( 'paged' ), 2);
+                                endif; 
+                            ?> 
                         </div>
                     </div>
                 </div>
                 
-                <?php get_sidebar(); ?>
                 
             </div>
-            
         </div>   
         <!-- end main contents -->
+
+        <!-- footer.phpを読み込む -->
         <?php get_footer(); ?>
-        <?php wp_footer(); ?><!--システム・プラグイン用-->
-        
+
+        <!--システム・プラグイン用-->
+        <?php wp_footer(); ?>
     </body>
 </html>
