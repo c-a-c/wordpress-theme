@@ -3,12 +3,12 @@ version: '3.1'
 services:
 
   wordpress:
-    image: wordpress
+    image: wordpress:php7.4
     container_name: wordpress
     restart: always
     ports:
       - 8080:80
-    env_file: wordpress.env
+    env_file: ../env/wordpress.env
     volumes:
       - ./assets/wordpress:/var/www/html
       - ../cac-wordpress-theme:/var/www/html/wp-content/themes/cac-wordpress-theme
@@ -17,6 +17,6 @@ services:
     image: mysql:5.7
     container_name: db
     restart: always
-    env_file: db.env
+    env_file: ../env/db.env
     volumes:
       - ./assets/db:/var/lib/mysql
