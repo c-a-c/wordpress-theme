@@ -68,7 +68,7 @@ Version     ： 1.0.0
                         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                         $the_query = new WP_Query([
                             'category_name' => '告知', //カテゴリー名の指定
-                            'posts_per_page' => 6,
+                            'posts_per_page' => 6,    //1ページに表示する投稿数
                             'paged' => $paged
                         ]);
                         if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -79,10 +79,10 @@ Version     ： 1.0.0
                             <?php 
                             the_post_thumbnail(
                                 [
-                                    260, 200
+                                    260, 200                              //サムネイル画像の大きさを指定
                                 ],
                                 [
-                                    'class' => "mediaContents__cell--img"
+                                    'class' => "mediaContents__cell--img" //サムネイルのクラスを指定
                                 ]
                             ); 
                             ?>   
@@ -92,12 +92,13 @@ Version     ： 1.0.0
                             <div>
                                 <!--タイトル-->
                                 <div class="mediaContents__cell--title"><?php the_title(); ?></div>
-                                <!--抜粋--><!--投稿日を表示-->
+                                <!--投稿日を表示-->
                                 <div class="mediaContents__cell--discription">
                                     <time datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
                                         <?php echo get_the_date(); ?>
                                     </time>
-                                    <?php the_excerpt(); ?>
+                                    <!-- 文章の一部を表示 -->
+                                    <?php add_new_line_on_except( get_the_excerpt(), 75); ?>
                                 </div>
                             </div>
                         </div>

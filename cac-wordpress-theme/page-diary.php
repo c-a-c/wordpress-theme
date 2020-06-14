@@ -92,7 +92,7 @@ Version     ： 1.0.0
                         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                         $the_query = new WP_Query([
                             'category_name' => 'ダイアリー', //カテゴリー名の指定
-                            'posts_per_page' => 6,
+                            'posts_per_page' => 6,         //1ページに表示する投稿数
                             'paged' => $paged
                         ]);
                         if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -103,10 +103,10 @@ Version     ： 1.0.0
                                 <?php
                                 the_post_thumbnail(
                                     [
-                                        500, 380
+                                        500, 380                              //サムネイル画像の大きさを指定
                                     ],
                                     [
-                                        'class' => "diaryContents__cell--img"
+                                        'class' => "diaryContents__cell--img" //サムネイルのクラスを指定
                                     ]
                                 );
                                 ?>
@@ -130,7 +130,7 @@ Version     ： 1.0.0
                                 <?php the_tags(''); ?>
                             </a>
                             <!-- 文章の一部を表示 -->
-                            <p class="diary"><?php the_excerpt(); ?></p>
+                            <p class="diary"><?php add_new_line_on_except( get_the_excerpt(), 30); ?></p>
                         </div>
                     <?php endwhile; else : ?>
                         <div class="diaryContents__noCongtentsMessage__background">

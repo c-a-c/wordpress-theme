@@ -75,12 +75,12 @@ Version     ： 1.0.0
                     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     $the_query = new WP_Query([
                         'category_name' => 'プロジェクト', //カテゴリー名の指定
-                        'posts_per_page' => 12,
+                        'posts_per_page' => 12,          //1ページに表示する投稿数
                         'paged' => $paged
                     ]);
                     if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
                 ?>
-                    <a href="" class="projectContents__cell--base" onmouseover="hoverProjectContents(true, this);" onmouseout="hoverProjectContents(false, this);">
+                    <a href="" class="projectContents__cell--base" onmouseover="hoverProjectContents(true, this);" onmouseout="hoverProjectContents(false, this);" style="text-decoration: none;">
                         <!-- サムネイルの表示 -->
                         <?php if( has_post_thumbnail() ): ?>
                             <div class="projectContents__cell--imgBlur" style="background-image: url(<?php the_post_thumbnail_url(array( 495, 380 ) ); ?>);">
@@ -94,11 +94,11 @@ Version     ： 1.0.0
                             </div>
                         <?php endif; ?>
                         <!--　記事タイトルの表示　-->
-                        <div class="projectContents__cell--title" style="text-decoration:none;">
+                        <div class="projectContents__cell--title">
                             <?php the_title(); ?>
                         </div>
                         <!--　投稿日とタグを表示　-->
-                        <div class="projectContents__cell--discription"　style="text-decoration:none;">
+                        <div class="projectContents__cell--discription">
                             <!-- 投稿日の表示 -->
                             <time datetime="<?php echo get_the_date(  ); ?>">
                                 <?php echo get_the_date( 'Y-m-d' ); ?>

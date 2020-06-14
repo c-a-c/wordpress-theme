@@ -62,7 +62,7 @@ Version     ： 1.0.0
         </div>
 
         <div class="mainMenu">
-            <div class="mainMenu__aboutLink" onclick="document.location.href = '<?php echo esc_url( home_url( 'index.php/about/' ) ); ?>'" onmouseout="hoverMainMenu('about', false);" onmouseover="hoverMainMenu('about', true);">
+            <div class="mainMenu__aboutLink" onclick="document.location.href = '<?php  ?>'" onmouseout="hoverMainMenu('about', false);" onmouseover="hoverMainMenu('about', true);">
                 <div class="mainMenu__imageLeft" id="mainMenu__aboutLink" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/top/mainMenu_about.png');">
                     <div class="mainMenu__squareLeft" style="background-color: #bedf69;"></div>
                 </div>
@@ -74,7 +74,7 @@ Version     ： 1.0.0
                 </div>
             </div>
 
-            <div class="mainMenu__projectLink" onclick="document.location.href = '<?php echo esc_url( home_url( 'index.php/project/' ) ); ?>'" onmouseout="hoverMainMenu('project', false);" onmouseover="hoverMainMenu('project', true);">
+            <div class="mainMenu__projectLink" onclick="document.location.href = '<?php  ?>'" onmouseout="hoverMainMenu('project', false);" onmouseover="hoverMainMenu('project', true);">
                 <div class="mainMenu__imageRight" id="mainMenu__projectLink" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/top/mainMenu_project.png');"></div>
                 <div class="mainMenu__discriptionLeft" style="background-color: #69abdf;">
                     <div class="mainMenu__discriptionLogo" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/top/mainMenu_logo_プロジェクト.png');"></div>
@@ -85,7 +85,7 @@ Version     ： 1.0.0
                 </div>
             </div>
 
-            <div class="mainMenu__diaryLink" onclick="document.location.href = '<?php echo esc_url( home_url( 'index.php/diary/' ) ); ?>'" onmouseout="hoverMainMenu('diary', false);" onmouseover="hoverMainMenu('diary', true);">
+            <div class="mainMenu__diaryLink" onclick="document.location.href = '<?php  ?>'" onmouseout="hoverMainMenu('diary', false);" onmouseover="hoverMainMenu('diary', true);">
                 <div class="mainMenu__imageLeft" id="mainMenu__diaryLink" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/top/mainMenu_diary.png');">
                     <div class="mainMenu__squareLeft" style="background-color: #d069df;"></div>
                 </div>
@@ -147,7 +147,7 @@ Version     ： 1.0.0
                     </div>
                 <?php endif; wp_reset_postdata(); ?>
                 <!-- PHPのループ終了　-->
-                <a class="mainDiary__moreButton" href="<?php echo esc_url( home_url( 'index.php/category/diary/' ) ); ?>">more</a>
+                <a class="mainDiary__moreButton" href="<?php  ?>">more</a>
             </div>
             <div class="mainDiary__twitter">
                 <div class="mainDiary__title">Twitter</div>

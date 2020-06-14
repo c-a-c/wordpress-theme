@@ -26,7 +26,10 @@ register_nav_menu( 'main-nav',  ' メインナビゲーション ' );
 register_nav_menu( 'diary-nav',  ' ダイアリーナビゲーション ' );
 
 //wp_enqueue_scripts（JSファイルを求めらた時に呼び出されるアクションフックタグ=イベント）にload_javascript_file関数を紐づける。
-add_action( 'wp_enqueue_scripts', 'load_javascript_file' );
+add_action('wp_enqueue_scripts', 'load_javascript_file' );
+
+// excerpt_length（the_excerpt関数の起動時に呼び出されるフィルターフックタグ=イベント）にcustom_excerpt_length関数を紐づける。
+add_filter('excerpt_length', 'custom_excerpt_length', 999 );
 
 // header_front_tag（header-frontのナビゲーション起動時に呼び出されるフィルターフックタグ=イベント）にrun_add_class_on_link_front_header関数を紐づける。
 add_filter('header_front_tag', 'run_add_class_on_link_front_header', 10, 0);
@@ -51,6 +54,37 @@ function load_javascript_file()
     wp_enqueue_script( 'script-name', get_template_directory_uri() . 'js/jqueryColorPlugin.js', array( 'jquery' ), '1.0.0', true );
     wp_enqueue_script( 'script-name', get_template_directory_uri() . 'js/main.js', array( 'jquery' ), '1.0.0', true );
     wp_enqueue_script( 'script-name', get_template_directory_uri() . 'js/project.js', array( 'jquery' ), '1.0.0', true );
+}
+
+/**
+* the_excerpt関数が表示する文字列を指定する関数
+*/
+function custom_excerpt_length( $length ) {
+    return 364;	
+}
+
+/**
+ * 投稿リストの表示で文章の一部を表示する際に整形する関数
+ * $except 整形する文章
+ * $split_number 改行する文字数
+ */
+function add_new_line_on_except( $except, $split_number)
+{
+    // PHP7.4ならこれでいいんだけどなー
+    // $array = str_split($except, $split_number); 
+    $array = str_split($except, $split_number); 
+    echo '<a>';
+    foreach( $array as $key => $a_string)
+    {
+        if($a_string == end($array)){
+            $a_string　= str_replace('&hellip;', '…', $a_string);
+        }
+        if( $key == 5 ){ break; }
+        echo $a_string ,'<br>';
+    }
+    echo '</a>';
+
+    return 0;
 }
 
 /**
@@ -97,7 +131,7 @@ function run_add_class_on_link_diary()
 * header-frontのナビゲーションの<a>タグにクラスを付加する関数
 * $item_output : 出力する文字列
 */
-function add_class_on_link_front_header($item_output)
+function add_class_on_link_front_header( $item_output )
 {
     return preg_replace('/(<a.*?)/', '$1' . " class='header__Link'", $item_output);
 }
@@ -106,7 +140,7 @@ function add_class_on_link_front_header($item_output)
 * header-miniのナビゲーションの<a>タグにクラスを付加する関数
 * $item_output : 出力する文字列
 */
-function add_class_on_link_mini_header($item_output)
+function add_class_on_link_mini_header( $item_output )
 {
     return preg_replace('/(<a.*?)/', '$1' . " class='miniHeader__Link'", $item_output);
 }
@@ -115,7 +149,7 @@ function add_class_on_link_mini_header($item_output)
 * footerのナビゲーションの<a>タグにクラスを付加する関数
 * $item_output : 出力する文字列
 */
-function add_class_on_link_footer($item_output)
+function add_class_on_link_footer( $item_output )
 {
     return preg_replace('/(<a.*?)/', '$1' . " class='footer__contents--link'", $item_output);
 }
@@ -124,36 +158,36 @@ function add_class_on_link_footer($item_output)
 * diaryのナビゲーションの<a>タグにクラスを付加する関数
 * $item_output : 出力する文字列
 */
-function add_class_on_link_diary($item_output)
+function add_class_on_link_diary( $item_output )
 {
     return preg_replace('/(<a.*?)/', '$1' . " class='diaryContents__menuBar--cell'", $item_output);
 }
 
-// 人気記事出力用
-function getPostViews($postID){
-	$count_key = 'post_views_count';
-	$count = get_post_meta($postID, $count_key, true);
-	if($count==''){
-			delete_post_meta($postID, $count_key);
-			add_post_meta($postID, $count_key, '0');
-			return "0 View";
-	}
-	return $count.' Views';
-}
+// // 人気記事出力用
+// function getPostViews($postID){
+// 	$count_key = 'post_views_count';
+// 	$count = get_post_meta($postID, $count_key, true);
+// 	if($count==''){
+// 			delete_post_meta($postID, $count_key);
+// 			add_post_meta($postID, $count_key, '0');
+// 			return "0 View";
+// 	}
+// 	return $count.' Views';
+// }
 
-function setPostViews($postID) {
-	$count_key = 'post_views_count';
-	$count = get_post_meta($postID, $count_key, true);
-	if($count==''){
-			$count = 0;
-			delete_post_meta($postID, $count_key);
-			add_post_meta($postID, $count_key, '0');
-	}else{
-			$count++;
-			update_post_meta($postID, $count_key, $count);
-	}
-}
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+// function setPostViews($postID) {
+// 	$count_key = 'post_views_count';
+// 	$count = get_post_meta($postID, $count_key, true);
+// 	if($count==''){
+// 			$count = 0;
+// 			delete_post_meta($postID, $count_key);
+// 			add_post_meta($postID, $count_key, '0');
+// 	}else{
+// 			$count++;
+// 			update_post_meta($postID, $count_key, $count);
+// 	}
+// }
+// remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
 /**
 * ページネーション出力関数
