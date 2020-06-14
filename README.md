@@ -2,7 +2,7 @@
 C.A.C.の公式ホームページです。
 
 ## 開発環境
-- wordpress
+- wordpress PHP 7.4
 - MySQL 5.7
 - Docker 
 
@@ -17,7 +17,7 @@ C.A.C.の公式ホームページです。
   - wordpressとdbの環境ファイル
 
 ### 使用したイメージについて
-- [wordpress:latest](https://hub.docker.com/layers/wordpress/library/wordpress/latest/images/sha256-f6218299a13f518e2d512a97fc87adbd7c4647919b8cff5fe2ac3a5be03e4566?context=explore)
+- [wordpress:php7.4](https://hub.docker.com/layers/wordpress/library/wordpress/php7.4/images/sha256-43a2e6caebd0b95479b76c800d2545315a5995875575b86b109c87a6317a6d11?context=explore)
 - [MySQL:5.7](https://hub.docker.com/layers/mysql/library/mysql/5.7/images/sha256-375d2452a2009a51803d528ad9bd1926eead59b0d74a8e463afd0e6feb11a85e?context=explore)  
 MySQLに関しては最新版だと動かない場合があるため、**必ず**5.7系を使用してください。  
 
@@ -31,7 +31,7 @@ mv env/db.env-template env/db.env
 
 ### コンテナ起動  
 - 起動方法  
-`docker`ディレクトリに移動し、
+`cd docker/`でディレクトリに移動し、
 `docker-compose up -d` を実行した後、  
 [http://localhost:8080](http://localhost:8080)にアクセスする。
 
