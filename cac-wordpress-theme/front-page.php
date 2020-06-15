@@ -25,14 +25,6 @@ Version     ： 1.0.0
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- links for css-->
-        <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" />
-
-        <!-- import fonts -->
-        <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-
         <!-- import bootstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -107,33 +99,35 @@ Version     ： 1.0.0
                     if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
                 ?>
                     <div class="mainDiary__diary--contents">
-                        <!-- サムネイルの表示 -->
-                        <?php if( has_post_thumbnail() ): ?>   
-                            <?php 
-                            the_post_thumbnail(
-                                [ 
-                                    200, 200                             //サムネイル画像の大きさを指定
-                                ],
-                                [
-                                    'class' => "mainDiary__diary--logo"  //サムネイルのクラスを指定
-                                ]
-                            ); 
-                            ?>         
-                        <?php else: ?>
-                            <img class="mainDiary__diary--logo" src="<?php echo get_template_directory_uri(); ?>/img/top/NoImage.jpg"/>
-                        <?php endif; ?>
-                        <!-- 記事タイトルの表示 -->
-                        <div class="mainDiary__diary--title">
-                            <?php the_title(); ?>
-                        </div>
-                        <!-- 記事本文の一部を表示 -->
-                        <div class="mainDiary__diary--sentence">
-                            <?php add_new_line_on_except( get_the_excerpt(), 30); ?>
-                        </div>
-                        <!-- セパレータの表示 -->
-                        <?php if( $index < 2 ): ?>
-                            <div class="mainDiary__diary--separator"></div>
-                        <?php $index++; endif; ?>
+                        <a href="<?php the_permalink(); ?>">
+                            <!-- サムネイルの表示 -->
+                            <?php if( has_post_thumbnail() ): ?>   
+                                <?php 
+                                the_post_thumbnail(
+                                    [ 
+                                        200, 200                             //サムネイル画像の大きさを指定
+                                    ],
+                                    [
+                                        'class' => "mainDiary__diary--logo"  //サムネイルのクラスを指定
+                                    ]
+                                ); 
+                                ?>         
+                            <?php else: ?>
+                                <img class="mainDiary__diary--logo" src="<?php echo get_template_directory_uri(); ?>/img/top/NoImage.jpg"/>
+                            <?php endif; ?>
+                            <!-- 記事タイトルの表示 -->
+                            <div class="mainDiary__diary--title">
+                                <?php the_title(); ?>
+                            </div>
+                            <!-- 記事本文の一部を表示 -->
+                            <div class="mainDiary__diary--sentence">
+                                <?php add_new_line_on_except( get_the_excerpt(), 30); ?>
+                            </div>
+                            <!-- セパレータの表示 -->
+                            <?php if( $index < 2 ): ?>
+                                <div class="mainDiary__diary--separator"></div>
+                            <?php $index++; endif; ?>
+                        </a>
                     </div>
                 <?php endwhile; else : ?>
                     <div class="mainDiary__diary--contents" style="text-align:center">

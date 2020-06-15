@@ -1,4 +1,9 @@
 @charset "utf-8";
+
+@import 'https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css';
+@import 'https://fonts.googleapis.com/earlyaccess/sawarabimincho.css';
+@import 'https://fonts.googleapis.com/css?family=Josefin+Sans';
+
 @import "css/main.css";
 @import "css/header.css";
 @import "css/footer.css";
@@ -8,6 +13,9 @@
 @import "css/link.css";
 @import "css/media.css";
 @import "css/project.css";
+@import "css/single.css";
+
+
 
 /*
 Theme Name: C.A.C.Web
