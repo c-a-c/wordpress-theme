@@ -19,21 +19,23 @@ Version     ： 1.0.0
         <div class="footer">
             <!-- ナビゲーションとコピーライトの表示 -->
             <div class="footer__contents">
-                <?php 
-                    apply_filters('footer_tag', 0, 0);
-                    wp_nav_menu(
-                        [
-                            'menu' => 'メインナビゲーション',
-                            'menu_class' => '',
-                            'menu_id' => 'menu',
-                            'container' => false,
-                            'container_class' => '',
-                            'container_id' => '',
-                            'theme_locaution' => 'main-nav',
-                            'items_wrap' => '%3$s'
-                        ] 
-                    ); 
-                ?>
+                <div class="footer__contents--link">
+                    <?php 
+                        apply_filters('footer_tag', 0, 0);
+                        wp_nav_menu(
+                            [
+                                'menu' => 'メインナビゲーション',
+                                'menu_class' => '',
+                                'menu_id' => 'menu',
+                                'container' => false,
+                                'container_class' => '',
+                                'container_id' => '',
+                                'theme_location' => 'main-nav',
+                                'items_wrap' => '%3$s'
+                            ] 
+                        ); 
+                    ?>
+                </div>
                 <div class="footer__copyright">
                     Copyright &copy; Computer Applications Club All Rights Reserved.
                 </div>

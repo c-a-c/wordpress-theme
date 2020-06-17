@@ -109,8 +109,13 @@ td {
     font-family: "Rounded Mplus 1c";
     color: #545454;
     font-size: 16px;
-    margin-left: 50px;
-    top: 13px;
+    margin-left: 10px;
+    top: 5px;
+}
+
+.miniHeader__Link li{
+    list-style: none;
+    display: inline-block;
 }
 
 .miniHeader__Link:hover {
