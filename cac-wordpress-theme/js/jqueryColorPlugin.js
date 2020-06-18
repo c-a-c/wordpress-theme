@@ -132,7 +132,7 @@
 	each = jQuery.each;
 
 // determine rgba support immediately
-supportElem.style.cssText = "background-color:rgba(1,1,1,.5)";
+supportElem.style.csssText = "background-color:rgba(1,1,1,.5)";
 support.rgba = supportElem.style.backgroundColor.indexOf( "rgba" ) > -1;
 
 // define cache name and alpha properties

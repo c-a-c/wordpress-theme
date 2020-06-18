@@ -24,22 +24,7 @@ Version     ： 1.0.0
         <title>弊団体について | C.A.C. | 京都産業大学 文化団体連盟所属 電子計算機応用部</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!-- links for css-->
-        <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" />
-        
-        <!-- links for javascript -->
-        <script src="../javascript/main.js" type="text/javascript"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script src="../javascript/jquery.easing.1.3.js" type="text/javascript"></script>
-        <script src="../javascript/jqueryColorPlugin.js" type="text/javascript"></script>
-        
-        <!-- import fonts -->
-        <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
-        
+  
         <!--システム・プラグイン用-->
         <?php wp_head(); ?>
     </head>
@@ -54,7 +39,9 @@ Version     ： 1.0.0
             </div>
             <div class="subPageSentence" style="color: #545454;">
                 <p style="margin-top: 50px; width: 1000px; text-align: justify; margin-left: calc(50% - 500px);">
-                    弊団体は、1965年4月に京都産業大学創立とともに創設された歴史ある部活動である。「電子計算機」のプログラミングオペレーションの知識を深め、種々の電子計算機により技術及びさまざまな応用問題を分析、研究すると同時に学生間の親睦及び社会に貢献する人間を形成する事を目的とし、活動している。また、近年ではイラストやミュージックなどの分野へのアプローチも行なっており多様な創作活動が盛んである。
+                    弊団体は、1965年4月に京都産業大学創立とともに創設された歴史ある部活動です。
+                    「電子計算機」のプログラミングオペレーションの知識を深め、種々の電子計算機により技術及びさまざまな応用問題を分析、研究すると同時に学生間の親睦及び社会に貢献する人間を形成する事を目的とし、活動しています。
+                    また、近年ではイラストやミュージックなどの分野へのアプローチも行なっており多様な創作活動が盛んになっています。
                 </p>
             </div>
         </div>

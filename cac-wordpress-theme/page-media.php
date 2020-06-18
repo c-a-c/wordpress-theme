@@ -25,14 +25,6 @@ Version     ： 1.0.0
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- links for css-->
-        <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" />
-
-        <!-- import fonts -->
-        <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-
         <!-- import bootstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -73,34 +65,36 @@ Version     ： 1.0.0
                         ]);
                         if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
                     ?>
-                        <div <?php post_class( 'mediaContents__cell--base' ); ?>>   
-                            <!--画像を追加-->
-                            <?php if( has_post_thumbnail() ): ?>
-                            <?php 
-                            the_post_thumbnail(
-                                [
-                                    260, 200                              //サムネイル画像の大きさを指定
-                                ],
-                                [
-                                    'class' => "mediaContents__cell--img" //サムネイルのクラスを指定
-                                ]
-                            ); 
-                            ?>   
-                            <?php else: ?>
-                                <div class="mediaContents__cell--img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/media/NoImage.jpg');"></div>
-                            <?php endif; ?>
-                            <div>
-                                <!--タイトル-->
-                                <div class="mediaContents__cell--title"><?php the_title(); ?></div>
-                                <!--投稿日を表示-->
-                                <div class="mediaContents__cell--discription">
-                                    <time datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
-                                        <?php echo get_the_date(); ?>
-                                    </time><br>
-                                    <!-- 文章の一部を表示 -->
-                                    <?php add_new_line_on_except( get_the_excerpt(), 75); ?>
+                        <div class="mediaContents__cell--base" >   
+                            <a href="<?php the_permalink(); ?>">
+                                <!-- サムネイルの表示 -->
+                                <?php if( has_post_thumbnail() ): ?>
+                                    <?php 
+                                    the_post_thumbnail(
+                                        [
+                                            260, 200                              //サムネイル画像の大きさを指定
+                                        ],
+                                        [
+                                            'class' => "mediaContents__cell--img" //サムネイルのクラスを指定
+                                        ]
+                                    ); 
+                                    ?>   
+                                <?php else: ?>
+                                    <div class="mediaContents__cell--img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/media/NoImage.jpg');"></div>
+                                <?php endif; ?>
+                                <div>
+                                    <!--　記事タイトルの表示　-->
+                                    <div class="mediaContents__cell--title"><?php the_title(); ?></div>
+                                    <!-- 投稿日の表示　-->
+                                    <div class="mediaContents__cell--discription">
+                                        <time datetime="<?php echo get_the_date( 'Y-m-d' ); ?>">
+                                            <?php echo get_the_date(); ?>
+                                        </time><br>
+                                        <!-- 文章の一部を表示 -->
+                                        <?php add_new_line_on_except( get_the_excerpt(), 48); ?>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                 <?php endwhile; else : ?>
                     <div class="mediaContents__noCongtentsMessage__background">
