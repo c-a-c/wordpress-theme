@@ -23,10 +23,10 @@ MySQLに関しては最新版だと動かない場合があるため、**必ず*
 
 ## 実行方法
 ### 環境変数  
-`.env`ファイルのテンプレートを用意しているので、ファイル名を変更して、変数に値をセットして下さい。  
+`.env`ファイルのテンプレートを用意しているので、`*.env`ファイルに変数に値をセットして下さい。  
 ```
-mv env/wordpress.env-template env/wordpress.env
-mv env/db.env-template env/db.env
+cp env/wordpress.env-template env/wordpress.env
+cp env/db.env-template env/db.env
 ```
 
 ### コンテナ起動  
