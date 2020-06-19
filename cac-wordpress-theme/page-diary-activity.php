@@ -24,14 +24,6 @@ Version     ： 1.0.0
         <title>ダイアリー＿活動日誌 | C.A.C. | 京都産業大学 文化団体連盟所属 電子計算機応用部</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-        <!-- links for css-->
-        <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" />
-
-        <!-- import fonts -->
-        <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
         <!-- import bootstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -100,39 +92,41 @@ Version     ： 1.0.0
                         if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
                     ?>
                         <div class="diaryContents__cell--frame"> 
-                            <!-- サムネイルの表示 --> 
-                            <?php if( has_post_thumbnail() ): ?>
-                                <?php
-                                the_post_thumbnail(
-                                    [
-                                        500, 380                              //サムネイル画像の大きさを指定
-                                    ],
-                                    [
-                                        'class' => "diaryContents__cell--img" //サムネイルのクラスを指定
-                                    ]
-                                );
-                                ?>
-                            <?php else: ?>
-                                <img class="diaryContents__cell--img" src="<?php echo get_template_directory_uri(); ?>/img/diary/NoImage.jpg"/>
-                            <?php endif; ?>
-                            <!-- カテゴリを表示（複数可） -->
-                            <div class="diaryContents__cell--categoryFrame">
-                                <?php if (!is_category()): ?>
-                                    <?php if( has_category() ): ?>
-                                        <a class="diaryContents__cell_categoryCell">
-                                            <?php $postcat=get_the_category(); echo $postcat[0]->name; ?>
-                                        </a>
-                                    <?php endif; ?>
+                            <a href="<?php the_permalink(); ?>">  
+                                <!-- サムネイルの表示 --> 
+                                <?php if( has_post_thumbnail() ): ?>
+                                    <?php
+                                    the_post_thumbnail(
+                                        [
+                                            500, 380                              //サムネイル画像の大きさを指定
+                                        ],
+                                        [
+                                            'class' => "diaryContents__cell--img" //サムネイルのクラスを指定
+                                        ]
+                                    );
+                                    ?>
+                                <?php else: ?>
+                                    <img class="diaryContents__cell--img" src="<?php echo get_template_directory_uri(); ?>/img/diary/NoImage.jpg"/>
                                 <?php endif; ?>
-                            </div>
-                            <!-- 記事タイトルを表示 -->
-                            <a href=""><h1 class="cellTitle"><?php the_title(); ?></h1></a>
-                            <!-- タグを表示（複数可） -->
-                            <a href="" class="diaryContents__cell--tag">
-                                <?php the_tags(''); ?>
+                                <!-- カテゴリを表示（複数可） -->
+                                <div class="diaryContents__cell--categoryFrame">
+                                    <?php if (!is_category()): ?>
+                                        <?php if( has_category() ): ?>
+                                            <a class="diaryContents__cell_categoryCell">
+                                                <?php $postcat=get_the_category(); echo $postcat[0]->name; ?>
+                                            </a>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                </div>
+                                <!-- 記事タイトルを表示 -->
+                                <h1 class="cellTitle"><?php the_title(); ?></h1>
+                                <!-- タグを表示（複数可） -->
+                                <a href="" class="diaryContents__cell--tag">
+                                    <?php the_tags(''); ?>
+                                </a>
+                                <!-- 文章の一部を表示 -->
+                                <p class="diary"><?php add_new_line_on_except( get_the_excerpt(), 23); ?></p>
                             </a>
-                            <!-- 文章の一部を表示 -->
-                            <p class="diary"><?php the_excerpt(); ?></p>
                         </div>
                     <?php endwhile; else : ?>
                         <div class="diaryContents__noCongtentsMessage__background">
@@ -153,9 +147,10 @@ Version     ： 1.0.0
                             ?> 
                         </div>
                     </div>
+
+                    <!-- sidebar.phpを読み込む -->
+                    <?php get_sidebar(); ?>
                 </div>
-                
-                
             </div>
         </div>   
         <!-- end main contents -->
