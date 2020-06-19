@@ -114,7 +114,7 @@ p.diary {
 
 h1.cellTitle {
     position: relative;
-    top: 0px;
+    top: 10px;
     padding: 0px 10px;
     font-family: "Noto Sans Japanese";
     font-size: 20px;
@@ -153,6 +153,7 @@ h1.cellTitle:hover {
     
 }
 
+
 .diaryContents__menuBar--frame {
     position: absolute;
     display: inline-block;
@@ -168,11 +169,10 @@ h1.cellTitle:hover {
 
 .diaryContents__menuBar--cell {
     position: relative;
-    display: inline-table;
-    height: 40px;
+    height: 30px;
     background-color: #545454;
-    padding: 0px 20px;
-    margin: 0px -3px;
+    padding: 15px 30px;
+    margin: -10px -3px;
     line-height: 43px;
     font-family: "Noto Sans Japanese";
     font-size: 17px;
@@ -182,9 +182,16 @@ h1.cellTitle:hover {
     border-width: 1px;
     border-color: rgb(55, 55, 55);*/
 }
-.diaryContents__menuBar--cell:hover {
+
+.diaryContents__menuBar--cell li{
+    float:left;
+    list-style: none;
+}
+
+.diaryContents__menuBar--cell li :hover {
     background-color: #0096ff;
     text-decoration: none;
+    color: #ffffff;
 }
 
 
