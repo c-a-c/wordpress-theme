@@ -169,11 +169,11 @@ h1.cellTitle:hover {
 
 .diaryContents__menuBar--cell {
     position: relative;
-    height: 30px;
+    height: 10px;
     background-color: #545454;
-    padding: 15px 30px;
-    margin: -10px -3px;
-    line-height: 43px;
+    padding: 15px  10px;
+    margin: 0px 0px;
+    line-height: 17px;
     font-family: "Noto Sans Japanese";
     font-size: 17px;
     font-weight: 700;

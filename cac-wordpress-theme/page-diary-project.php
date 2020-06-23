@@ -68,7 +68,7 @@ Version     ： 1.0.0
                                     'container' => false,
                                     'container_class' => '',
                                     'container_id' => '',
-                                    'theme_locaution' => 'diary-nav',
+                                    'theme_location' => 'diary-nav',
                                     'items_wrap' => '%3$s'
                                 ] 
                             ); 
