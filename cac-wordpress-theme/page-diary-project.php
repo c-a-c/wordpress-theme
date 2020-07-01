@@ -57,21 +57,23 @@ Version     ： 1.0.0
             <!-- ダイアリーメニュー -->
             <div class="diaryContents__menuBar--base">
                 <div class="diaryContents__menuBar--frame">
-                    <?php
-                        apply_filters('diary_nav_tag', 0, 0);
-                        wp_nav_menu(
-                            [
-                                'menu' => 'ダイアリーナビゲーション',
-                                'menu_class' => '',
-                                'menu_id' => 'menu',
-                                'container' => false,
-                                'container_class' => '',
-                                'container_id' => '',
-                                'theme_locaution' => 'diary-nav',
-                                'items_wrap' => '%3$s'
-                            ] 
-                        ); 
-                    ?>
+                    <div class="diaryContents__menuBar--cell">
+                        <?php
+                            apply_filters('diary_nav_tag', 0, 0);
+                            wp_nav_menu(
+                                [
+                                    'menu' => 'ダイアリーナビゲーション',
+                                    'menu_class' => '',
+                                    'menu_id' => 'menu',
+                                    'container' => false,
+                                    'container_class' => '',
+                                    'container_id' => '',
+                                    'theme_location' => 'diary-nav',
+                                    'items_wrap' => '%3$s'
+                                ] 
+                            ); 
+                        ?>
+                    </div>
                 </div>
             </div>
             

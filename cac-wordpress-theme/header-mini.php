@@ -18,8 +18,8 @@ Version     ： 1.0.0
     <header>
         <div class="miniHeader">
             <div class="miniHeader__cacLogo" style="cursor: pointer;" onclick="location.href ='<?php echo esc_url( home_url( '/' ) ); ?>'" ></div>
-            <div style="text-align: right; margin-right: 30px" >
-                <?php 
+            <div class="miniHeader__Link" style="text-align: right; margin-right: 10px; " >
+                <?php  
                     apply_filters('header_mini_tag', 0, 0);
                     wp_nav_menu(
                         [
@@ -29,7 +29,7 @@ Version     ： 1.0.0
                             'container' => false,
                             'container_class' => '',
                             'container_id' => '',
-                            'theme_locaution' => 'main-nav',
+                            'theme_location' => 'main-nav',
                             'items_wrap' => '%3$s'
                         ] 
                     ); 

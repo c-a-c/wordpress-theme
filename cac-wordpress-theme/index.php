@@ -12,6 +12,9 @@ Date: 2020/06/07 (created：2017)
 Description: original theme
 version： 1.1.0
 */
+
+//なんでこんなものが...（困惑）
+
 ?>
 <html>
     <head>

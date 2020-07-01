@@ -37,7 +37,7 @@ Version     ： 1.0.0
                             'container' => false,
                             'container_class' => '',
                             'container_id' => '',
-                            'theme_locaution' => 'main-nav'
+                            'theme_location' => 'main-nav'
                         ] 
                     ); 
                 ?>
