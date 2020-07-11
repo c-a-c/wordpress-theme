@@ -30,11 +30,11 @@ and open the template in the editor.
 
 .announceContents__cell--frame {
     position: relative;
-    width: 1000px;
+    width: 100%;
     /*height: calc(245px * 5);*/
-    left: calc(50% - 500px);
     top: 45px;
     padding-bottom: 50px;
+
 /*    border-style: solid;
     border-width: 1px;
     border-color: rgb(55, 55, 55);*/
@@ -219,3 +219,4 @@ and open the template in the editor.
     font-family: "Rounded Mplus 1c";
     color: #8c8b8b;
 }
+
