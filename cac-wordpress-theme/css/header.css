@@ -33,7 +33,7 @@ p,
 blockquote,
 th,
 td {
-    margin: 10;
+    margin: 0;
     padding: 0;
 }
 
@@ -76,6 +76,7 @@ td {
     color: #545454;
     font-size: 16px;
     margin-left: 50px;
+    text-decoration: underline;
     top: 10px;
 }
 
@@ -112,7 +113,7 @@ td {
     color: #545454;
     font-size: 100%;
     margin-left: 10px;
-    top: 5px;
+    top: 10px;
 }
 
 .miniHeader__Link li{
@@ -181,5 +182,19 @@ td {
         font-size: 60%;
         margin-left: 2px;
         top: 5px;
+    }
+}
+
+
+@media screen and (max-width: 766px){
+    .header__Link {
+        position: relative;
+        cursor: pointer;
+        font-family: "Rounded Mplus 1c";
+        color: #545454;
+        font-size: 16px;
+        margin-left: 50px;
+        text-decoration: underline;
+        top: 0px;
     }
 }

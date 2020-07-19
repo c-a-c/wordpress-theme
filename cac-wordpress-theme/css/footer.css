@@ -65,3 +65,16 @@ a.footer__contents--link:hover {
 .footer__copyright--link:hover {
     color: #0096ff;
 }
+
+@media screen and (max-width: 581px){
+    .footer__copyright {
+        top: 30px;
+    }
+    .footer {
+        height: 270px;
+    }
+    .footer__contents--link li{
+        list-style: none;
+        display: list-item;
+    }
+}
