@@ -35,6 +35,26 @@ Version     ： 1.0.0
                     ); 
                 ?>
             </div>
+            <nav class="navbar navbar-light bg-white pulldown_size">
+                <button class="navbar-toggler pulldown_button" type="button"
+                    data-toggle="collapse"
+                    data-target="#navmenu1"
+                    aria-controls="navmenu1"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navmenu1">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="home">ホーム</a>
+                        <a class="nav-item nav-link" href="about">弊団体について</a>
+                        <a class="nav-item nav-link" href="project">プロジェクト</a>
+                        <a class="nav-item nav-link" href="announce">告知</a>
+                        <a class="nav-item nav-link" href="diary">ダイアリー</a>
+                        <a class="nav-item nav-link" href="media">メディア</a>
+                    </div>
+                </div>
+            </nav>
         </div>
     </header>
 </html>

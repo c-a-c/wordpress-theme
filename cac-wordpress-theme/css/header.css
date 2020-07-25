@@ -125,7 +125,14 @@ td {
     color: #0096ff;
     text-decoration: none;
 }
-
+.pulldown_size{
+    width:50%;
+    left: 70%;
+    top:-270px
+}
+.pulldown_button{
+    width:20%;
+}
 
 @media screen and (min-width: 980px){
     .header__cacDiscription {
@@ -163,27 +170,32 @@ td {
 
 @media screen and (max-width: 620px) and (min-width: 485px){
     .miniHeader__Link {
-        position: relative;
-        cursor: pointer;
-        font-family: "Rounded Mplus 1c";
-        color: #545454;
-        font-size: 85%;
-        margin-left: 5px;
-        top: 5px;
+        font-size: 0%;
+    }
+    .pulldown_size{
+        width:50%;
+        left: 70%;
+        top:-7px
+    }
+    .pulldown_button{
+        width:25%;
     }
 }
 
-@media screen and (max-width: 484px){
+@media screen and (max-width: 485px){
     .miniHeader__Link {
-        position: relative;
-        cursor: pointer;
-        font-family: "Rounded Mplus 1c";
-        color: #545454;
-        font-size: 60%;
-        margin-left: 2px;
-        top: 5px;
+        font-size: 0%;
+    }
+    .pulldown_size{
+        width:50%;
+        left: 70%;
+        top:-7px
+    }
+    .pulldown_button{
+        width:25%;
     }
 }
+
 
 
 @media screen and (max-width: 766px){
