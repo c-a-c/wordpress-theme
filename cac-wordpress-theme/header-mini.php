@@ -46,12 +46,12 @@ Version     ： 1.0.0
                 </button>
                 <div class="collapse navbar-collapse" id="navmenu1">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="home">ホーム</a>
-                        <a class="nav-item nav-link" href="about">弊団体について</a>
-                        <a class="nav-item nav-link" href="project">プロジェクト</a>
-                        <a class="nav-item nav-link" href="announce">告知</a>
-                        <a class="nav-item nav-link" href="diary">ダイアリー</a>
-                        <a class="nav-item nav-link" href="media">メディア</a>
+                        <a class="nav-item nav-link pulldown_content" href="..">ホーム</a>
+                        <a class="nav-item nav-link pulldown_content" href="about">弊団体について</a>
+                        <a class="nav-item nav-link pulldown_content" href="project">プロジェクト</a>
+                        <a class="nav-item nav-link pulldown_content" href="announce">告知</a>
+                        <a class="nav-item nav-link pulldown_content" href="diary">ダイアリー</a>
+                        <a class="nav-item nav-link pulldown_content" href="media">メディア</a>
                     </div>
                 </div>
             </nav>
