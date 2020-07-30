@@ -77,7 +77,6 @@ td {
     color: #545454;
     font-size: 16px;
     margin-left: 50px;
-    border-bottom: 1px solid #bbb9b9;
     margin-left: -10px;
     top: 10px;
 }
@@ -186,6 +185,10 @@ td {
     .pulldown_button{
         width:25%;
     }
+    .miniheader-navi > .menu-item{
+        border-bottom: 1px solid #bbb9b9;
+        margin-left: -10px;
+    }
 }
 
 @media screen and (max-width: 485px){
@@ -200,6 +203,10 @@ td {
     .pulldown_button{
         width:25%;
     }
+    .miniheader-navi > .menu-item{
+        border-bottom: 1px solid #bbb9b9;
+        margin-left: -10px;
+    }
 }
 
 
@@ -211,11 +218,6 @@ td {
         color: #545454;
         font-size: 16px;
         margin-left: 50px;
-        text-decoration: underline;
         top: 0px;
     }
-}
-
-.aaaaa{
-    width:100px;
 }

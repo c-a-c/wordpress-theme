@@ -27,12 +27,12 @@ Version     ： 1.0.0
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <?php 
+                <?php  
                     apply_filters('header_front_tag', 0, 0);
                     wp_nav_menu(
                         [
                             'menu' => 'メインナビゲーション',
-                            'menu_class' => 'collapse navbar-collapse justify-content-center aaaaa',
+                            'menu_class' => 'collapse navbar-collapse justify-content-center miniheader-navi',
                             'menu_id' => 'menu',
                             'container' => false,
                             'container_class' => '',
