@@ -32,7 +32,7 @@
     top: 20px;;
     left: calc(50% - 500px);
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
     .projectContents__background--frame {
         width: 95%;
         left: 5%;
@@ -52,13 +52,13 @@
     border-width: 1px;
     border-color: #dddddd;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
     .projectContents__cell--base {
         width: 45%;
         margin: 5px;
     }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 767px) {
     .projectContents__cell--base {
         width: 95%;
         left: 0px;
@@ -135,7 +135,7 @@
     font-size: 25px;
     z-index: 100;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 767px) {
     .projectContents__cell--title {
         margin-left: 20px;
     }
@@ -148,7 +148,7 @@
     font-size: 15px;
     z-index: 100;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 767px) {
     .projectContents__cell--discription {
         margin-left: 20px;
     }
@@ -174,8 +174,6 @@
     display: table-cell;
     position: relative;
     background-color: rgba(0, 160, 233, 1.0);
-    width: 50px;
-    height: 50px;
     margin-left: 10px;
     font-family: "Rounded Mplus 1c";
     text-align: center;
@@ -196,8 +194,6 @@
     display: table-cell;
     position: relative;
     background-color: rgba(0, 160, 233, 1.0);
-    width: 70px;
-    height: 50px;
     margin-left: 10px;
     font-family: "Rounded Mplus 1c";
     text-align: center;
@@ -248,4 +244,35 @@
     left: 0px;
     font-family: "Rounded Mplus 1c";
     color: #8c8b8b;
+}
+
+@media screen and (max-width: 768px) and (min-width: 376px){
+    .projectContents__pageMenu--cellRec {
+        width: 30px;
+        height: 30px;
+    }
+    .projectContents__pageMenu--cellSquare {
+        width: 30px;
+        height: 30px;
+    }
+}
+@media screen and (max-width: 375px){
+    .projectContents__pageMenu--cellSquare {
+        width: 30px;
+        height: 30px;
+    }
+    .projectContents__pageMenu--cellRec {
+        width: 30px;
+        height: 30px;
+    }
+}
+@media screen and (min-width: 769px){
+    .projectContents__pageMenu--cellSquare {
+        width: 50px;
+        height: 50px;
+    }
+    .projectContents__pageMenu--cellRec {
+        width: 70px;
+        height: 50px;
+    }
 }

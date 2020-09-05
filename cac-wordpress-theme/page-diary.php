@@ -74,6 +74,25 @@ Version     ： 1.0.0
                             ); 
                         ?>
                     </div>
+                    <nav class="navbar navbar-light pulldown_size_diary">
+                        <button class="navbar-toggler pulldown_button_diary" type="button"
+                            data-toggle="collapse"
+                            data-target="#navmenu2"
+                            aria-controls="navmenu2"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navmenu2">
+                            <div class="navbar-nav">
+                                <a class="nav-item nav-link pulldown_diary_content" href="http://localhost:8080/diary/">トップ</a>
+                                <a class="nav-item nav-link pulldown_diary_content" href="http://localhost:8080/diary/event/">行事</a>
+                                <a class="nav-item nav-link pulldown_diary_content" href="http://localhost:8080/diary/activity/">活動日誌</a>
+                                <a class="nav-item nav-link pulldown_diary_content" href="http://localhost:8080/diary/project/">プロジェクト</a>
+                                <a class="nav-item nav-link pulldown_diary_content" href="http://localhost:8080/diary/members/">部員向け情報</a>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
             </div>
             
@@ -141,10 +160,12 @@ Version     ： 1.0.0
                     <div class="projectContents__pageMenu--frame">
                         <div class="projectContents__pageMenu--back">
                             <?php
-                                if ( function_exists( 'pagination' ) ) :
+                                if ( $_SESSION[windowSize] < 767) :
+                                    pagination_cellphone( $the_query->max_num_pages, get_query_var( 'paged' ), 2);
+                                else:
                                     pagination( $the_query->max_num_pages, get_query_var( 'paged' ), 2);
-                                endif; 
-                            ?> 
+                                endif;
+                            ?>    
                         </div>
                     </div>
 

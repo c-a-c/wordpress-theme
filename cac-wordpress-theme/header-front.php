@@ -23,7 +23,7 @@ Version     ： 1.0.0
                 <div class="header__cacLogo"></div>
             </span>
             <!-- ナビゲーションの表示 -->
-            <nav class="navbar navbar-light bg-white navbar-expand-md" style="padding: 0px;top:10px">
+            <nav class="navbar navbar-light bg-white navbar-expand-md" style="padding: 0px;top:40px">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -32,7 +32,7 @@ Version     ： 1.0.0
                     wp_nav_menu(
                         [
                             'menu' => 'メインナビゲーション',
-                            'menu_class' => 'collapse navbar-collapse justify-content-center miniheader-navi',
+                            'menu_class' => 'collapse navbar-collapse justify-content-center miniheader-navi miniheader_content',
                             'menu_id' => 'menu',
                             'container' => false,
                             'container_class' => '',

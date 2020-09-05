@@ -220,7 +220,13 @@
     color: #8c8b8b;
 }
 
-@media screen and (max-width: 760px) and (min-width: 510px){
+.miniheader-navi > .menu-item{
+    border-bottom: 1px solid #bbb9b9;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+@media screen and (max-width: 769px) and (min-width: 375px){
     .mediaContents__cell--discription {
         position: relative;
         width: 50%;
@@ -273,7 +279,7 @@
     }
 }
 
-@media screen and (max-width: 509px){
+@media screen and (max-width: 769px){
     .mediaContents__cell--discription {
         position: relative;
         width: 50%;
