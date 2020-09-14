@@ -39,6 +39,7 @@ and open the template in the editor.
     position: relative;
     display: inline-block;
     width: 100%;
+    height: 100%;
 }
 
 h2.diary {
@@ -48,7 +49,7 @@ h2.diary {
     font-family: "Noto Sans Japanese";
     font-size: 20px;
     /*width: 680px;*/
-    width: 97%;
+    width: 100%;
     font-weight: 700;
     color: #545454;
     background: linear-gradient(transparent 90%, #0096ff 70%);
@@ -157,10 +158,8 @@ h1.cellTitle:hover {
 .diaryContents__menuBar--frame {
     position: absolute;
     display: inline-block;
-    width: 1000px;
+    width: 100%;
     height: 50px;
-    top: 0px;
-    left: calc(50% - 500px);
     text-align: left;
 /*    border-style: solid;
     border-width: 1px;
@@ -209,7 +208,7 @@ h1.cellTitle:hover {
     position: absolute;
     background-size: cover;
     background-position: center center;
-    width: calc(100% + 20px);
+    width: 100%;
     height: 200px;
     top: 40px;
     left: -10px;
@@ -224,19 +223,16 @@ h1.cellTitle:hover {
 .eachDiaryContents--back {
     position: relative;
     background-color: white;
-    width: calc(100% + 17px);
+    width: 100%;
     margin-top: 0px;
     left: -8px;
 }
 
 .eachDiaryContents--frame {
     position: relative;
-    width: 1000px;
-    left: calc(50% - 500px);
+    width: 100%;
+    left: 2%;
     top: 0px;
-/*    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(55, 55, 55);*/
 }
 
 .eachDiaryContents--sentence {
@@ -251,7 +247,6 @@ h1.cellTitle:hover {
 }
 
 .eachDiaryContents--subMenu {
-    display: table-cell;
     position: relative;
     width: 300px;
     left: 0px;
@@ -472,8 +467,6 @@ a.subMenu__cell--tag:hover {
     display: table-cell;
     position: relative;
     background-color: rgba(0, 160, 233, 1.0);
-    width: 50px;
-    height: 50px;
     margin-left: 10px;
     font-family: "Rounded Mplus 1c";
     text-align: center;
@@ -525,4 +518,117 @@ a.subMenu__cell--tag:hover {
     border-width: 2px;
     border-color: white;
 }
+.pulldown_size_diary {
+    left: 0%;
+    width: 0%;
+    top: -1000px;
+}
+.diaryContents__menuBar--cell > .page-item > .diaryContents__menuBar--cell{
+    top:900px;
+}
+.pulldown_diary_content{
+    width:500px;
+}
 
+@media screen and (max-width: 768px) and (min-width: 376px){
+    .diaryContents__menuBar--cell{
+        width:0px;
+        top: -500px;
+    }
+    .pulldown_size_diary {
+        left: 0%;
+        width: 10%;
+        top: -30px;
+        background-color: #545454;
+    }
+    .pulldown_diary_content{
+        background-color: white; 
+        width: 120px;
+        margin-left: -16px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        z-index: 999999;
+        border-bottom: 1px solid #bbbbb9;
+    }
+    .collapse{
+        margin-top: 10px;
+    }
+    .eachDiaryContents--subMenu {
+        position: relative;
+        width: 300px;
+        left: 0px;
+        top: 0px;
+    /*    border-style: solid;
+        border-width: 1px;
+        border-color: rgb(55, 55, 55);*/
+    }
+    .projectContents__pageMenu--cellRecNotButton {
+        display: table-cell;
+        position: relative;
+        background-color: rgba(180, 180, 180, 1.0);
+        width: 30px;
+        height: 20px;
+        margin-left: 10px;
+        font-family: "Rounded Mplus 1c";
+        text-align: center;
+        vertical-align: middle;
+        color: #2d2d2d;
+        font-size: 16px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: white;
+    }
+    .projectContents__pageMenu--cellSquare {
+        width: 30px;
+        height: 30px;
+    }
+}
+@media screen and (max-width: 375px){
+    .pulldown_size_diary {
+        left: -28px;
+        width: 0%;
+        top: -20px;
+    }
+    .diaryContents__menuBar--cell{
+        width:0px;
+        top: -500px;
+    }
+    .pulldown_diary_content {
+        background-color: white;
+        width: 120px;
+        margin-left: 4px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        z-index: 999999;
+        border-bottom: 1px solid #bbbbb9;
+    }
+    .projectContents__pageMenu--cellRecNotButton {
+        display: table-cell;
+        position: relative;
+        background-color: rgba(180, 180, 180, 1.0);
+        width: 30px;
+        height: 20px;
+        margin-left: 10px;
+        font-family: "Rounded Mplus 1c";
+        text-align: center;
+        vertical-align: middle;
+        color: #2d2d2d;
+        font-size: 16px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: white;
+    }
+    .projectContents__pageMenu--cellSquare {
+        width: 30px;
+        height: 30px;
+    }
+}
+@media screen and (min-width: 769px){
+    .eachDiaryContents--subMenu {
+        display: table-cell;
+    }
+    .projectContents__pageMenu--cellSquare {
+        width: 50px;
+        height: 50px;
+    }
+}
