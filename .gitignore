@@ -11,4 +11,5 @@ env/db.env
 env/wordpress.env
 
 # DB data
-docker/assets/*
+docker/assets/db/*
+docker/assets/wordpress/*
