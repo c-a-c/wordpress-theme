@@ -159,13 +159,17 @@ Version     ： 1.0.0
                     <!-- ページネーションの表示 -->
                     <div class="projectContents__pageMenu--frame">
                         <div class="projectContents__pageMenu--back">
+
+                            <!-- サンプルコード -->
                             <?php
-                                if ( $_SESSION[windowSize] < 767) :
+                                $width = <script>document.body.clientWidth</script>;
+                                echo htmlspecialchars($width);
+                                if ($width < 767) :
                                     pagination_cellphone( $the_query->max_num_pages, get_query_var( 'paged' ), 2);
                                 else:
                                     pagination( $the_query->max_num_pages, get_query_var( 'paged' ), 2);
                                 endif;
-                            ?>    
+                            ?>   
                         </div>
                     </div>
 
