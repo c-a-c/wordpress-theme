@@ -9,3 +9,6 @@
 # environment file
 env/db.env
 env/wordpress.env
+
+# DB data
+docker/assets/*

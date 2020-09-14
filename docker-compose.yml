@@ -8,15 +8,15 @@ services:
     restart: always
     ports:
       - 8080:80
-    env_file: ../env/wordpress.env
+    env_file: ./env/wordpress.env
     volumes:
-      - ./assets/wordpress:/var/www/html
-      - ../cac-wordpress-theme:/var/www/html/wp-content/themes/cac-wordpress-theme
+      - ./docker/assets/wordpress:/var/www/html
+      - ./cac-wordpress-theme:/var/www/html/wp-content/themes/cac-wordpress-theme
 
   db:
     image: mysql:5.7
     container_name: db
     restart: always
-    env_file: ../env/db.env
+    env_file: ./env/db.env
     volumes:
-      - ./assets/db:/var/lib/mysql
+      - ./docker/assets/db:/var/lib/mysql
