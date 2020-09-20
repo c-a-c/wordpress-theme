@@ -49,7 +49,7 @@ h2.diary {
     font-family: "Noto Sans Japanese";
     font-size: 20px;
     /*width: 680px;*/
-    width: 100%;
+    width: 70%;
     font-weight: 700;
     color: #545454;
     background: linear-gradient(transparent 90%, #0096ff 70%);
@@ -368,7 +368,7 @@ img.eachDiaryImg {
 }
 
 /* sub menu */
-.subMenu__cell--frame {
+.subMenu__cell--frame,.subMenu__cell--frame--right,.subMenu__cell--frame--single,.subMenu__cell--frame--right--single {
     position: relative;
     display: inline-table;
     text-align: justify;
@@ -526,9 +526,6 @@ a.subMenu__cell--tag:hover {
 .diaryContents__menuBar--cell > .page-item > .diaryContents__menuBar--cell{
     top:900px;
 }
-.pulldown_diary_content{
-    width:500px;
-}
 
 @media screen and (max-width: 768px) and (min-width: 376px){
     .diaryContents__menuBar--cell{
@@ -543,8 +540,8 @@ a.subMenu__cell--tag:hover {
     }
     .pulldown_diary_content{
         background-color: white; 
-        width: 120px;
-        margin-left: -16px;
+        width: 100vw;
+        margin-left: -43px;
         margin-top: 0px;
         margin-bottom: 0px;
         z-index: 999999;
@@ -582,6 +579,11 @@ a.subMenu__cell--tag:hover {
         width: 30px;
         height: 30px;
     }
+    .subMenu__cell--frame--right--single{
+        left:100%;
+        top:-456px;
+        width:70%;
+    }
 }
 @media screen and (max-width: 375px){
     .pulldown_size_diary {
@@ -595,8 +597,8 @@ a.subMenu__cell--tag:hover {
     }
     .pulldown_diary_content {
         background-color: white;
-        width: 120px;
-        margin-left: 4px;
+        width: 100vw;
+        margin-left: -17px;
         margin-top: 0px;
         margin-bottom: 0px;
         z-index: 999999;

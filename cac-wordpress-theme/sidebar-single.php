@@ -1,6 +1,6 @@
 <div class="eachDiaryContents--subMenu">
 
-    <h2 class="diary subMenu__cell--frame">最近の投稿</h2>
+    <h2 class="diary subMenu__cell--frame--single">最近の投稿</h2>
 
     <?php
         $the_query = new WP_Query([
@@ -9,7 +9,7 @@
         ]);
         if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
     ?>
-        <div class="subMenu__cell--frame">
+        <div class="subMenu__cell--frame--single">
             <a href="<?php the_permalink(); ?>" class="subMenu__cell--contentsFrame">
                 <!-- メイン画像を指定 -->     
                 <?php if( has_post_thumbnail() ): ?>
@@ -48,7 +48,7 @@
         </div>
     <?php endif; wp_reset_postdata(); ?>
     
-    <h2 class="diary subMenu__cell--frame--right">アクセスランキング（仮）</h2>
+    <h2 class="diary subMenu__cell--frame--right--single">アクセスランキング</h2>
     
     <?php
         // views post metaで記事のPV情報を取得する
@@ -63,7 +63,7 @@
         ]);
         if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
     ?>
-        <div class="subMenu__cell--frame--right">
+        <div class="subMenu__cell--frame--right--single">
             <a href="" class="subMenu__cell--contentsFrame">
                 <!-- メイン画像を指定 -->     
                 <?php if( has_post_thumbnail() ): ?>
@@ -102,9 +102,9 @@
         </div>
     <?php endif; wp_reset_postdata(); ?>
     
-    <h2 class="diary subMenu__cell--frame--right">タグ一覧（仮）</h2>
+    <h2 class="diary subMenu__cell--frame--right--single">タグ一覧（仮）</h2>
 
-    <div class="subMenu__cell--frame">
+    <div class="subMenu__cell--frame--single">
         
     </div>
     

@@ -107,7 +107,7 @@ Version     ： 1.0.0
                     </div>
 
                     <!-- sidebar.phpを読み込む -->
-                    <?php get_sidebar(); ?>
+                    <?php get_sidebar('single'); ?>
                 </div>
             </div>
         </div>   

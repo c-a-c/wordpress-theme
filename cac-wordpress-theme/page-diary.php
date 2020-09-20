@@ -162,7 +162,6 @@ Version     ： 1.0.0
 
                             <!-- サンプルコード -->
                             <?php
-                                $width = <script>document.body.clientWidth</script>;
                                 echo htmlspecialchars($width);
                                 if ($width < 767) :
                                     pagination_cellphone( $the_query->max_num_pages, get_query_var( 'paged' ), 2);
