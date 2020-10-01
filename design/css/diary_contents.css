@@ -3,11 +3,11 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
-    Created on : 2017/05/28, 22:23:27
-    Date       : 2020/06/07
-    Author     : okamoto, Keisuke Ikeda
+/*
+    Created on : 2020/07/25
+    Author     : kunimoto
 */
+
 
 .diaryBackgroundImage {
     position: fixed;
@@ -39,7 +39,6 @@ and open the template in the editor.
     position: relative;
     display: inline-block;
     width: 100%;
-    height: 100%;
 }
 
 h2.diary {
@@ -49,7 +48,7 @@ h2.diary {
     font-family: "Noto Sans Japanese";
     font-size: 20px;
     /*width: 680px;*/
-    width: 70%;
+    width: 97%;
     font-weight: 700;
     color: #545454;
     background: linear-gradient(transparent 90%, #0096ff 70%);
@@ -64,18 +63,17 @@ p.diary {
     margin: 10px;
 }
 
-.diaryContents__cell--categoryFrame {
-    position: absolute;
+/*変更分*/
+.diaryAritcle__cell--categoryFrame {
     width: 320px;
     height: 20px;
-    top: 215px;
-    padding: 0px 10px;
 }
+/*変更分*/
 
 .diaryContents__cell_categoryCell {
     position: relative;
     display: inline-table;
-    
+
     /*height: 20px;*/
     top: 0px;
     font-family: "Noto Sans Japanese";
@@ -85,7 +83,7 @@ p.diary {
     padding: 0px 10px;
     background-color: #eca41f;
     border-radius: 3px;
-    -webkit-border-radius: 3px;	
+    -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
 /*    border-style: solid;
     border-width: 1px;
@@ -95,7 +93,7 @@ p.diary {
 .diaryContents__cell_categoryCellTitle {
     position: relative;
     display: inline-table;
-    
+
     /*height: 20px;*/
     top: 0px;
     margin-left: 20px;
@@ -106,7 +104,7 @@ p.diary {
     padding: 0px 10px;
     background-color: #eca41f;
     border-radius: 3px;
-    -webkit-border-radius: 3px;	
+    -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
 /*    border-style: solid;
     border-width: 1px;
@@ -115,7 +113,7 @@ p.diary {
 
 h1.cellTitle {
     position: relative;
-    top: 10px;
+    top: 0px;
     padding: 0px 10px;
     font-family: "Noto Sans Japanese";
     font-size: 20px;
@@ -151,15 +149,16 @@ h1.cellTitle:hover {
     left: 0px;
     margin-bottom: 45px;
     background-color: #545454;
-    
-}
 
+}
 
 .diaryContents__menuBar--frame {
     position: absolute;
     display: inline-block;
-    width: 100%;
+    width: 1000px;
     height: 50px;
+    top: 0px;
+    left: calc(50% - 500px);
     text-align: left;
 /*    border-style: solid;
     border-width: 1px;
@@ -168,11 +167,12 @@ h1.cellTitle:hover {
 
 .diaryContents__menuBar--cell {
     position: relative;
-    height: 10px;
+    display: inline-table;
+    height: 40px;
     background-color: #545454;
-    padding: 15px  10px;
-    margin: 0px 0px;
-    line-height: 17px;
+    padding: 0px 20px;
+    margin: 0px -3px;
+    line-height: 43px;
     font-family: "Noto Sans Japanese";
     font-size: 17px;
     font-weight: 700;
@@ -181,16 +181,8 @@ h1.cellTitle:hover {
     border-width: 1px;
     border-color: rgb(55, 55, 55);*/
 }
-
-.diaryContents__menuBar--cell li{
-    float:left;
-    list-style: none;
-}
-
-.diaryContents__menuBar--cell li :hover {
+.diaryContents__menuBar--cell:hover {
     background-color: #0096ff;
-    text-decoration: none;
-    color: #ffffff;
 }
 
 
@@ -208,7 +200,7 @@ h1.cellTitle:hover {
     position: absolute;
     background-size: cover;
     background-position: center center;
-    width: 100%;
+    width: calc(100% + 20px);
     height: 200px;
     top: 40px;
     left: -10px;
@@ -223,16 +215,19 @@ h1.cellTitle:hover {
 .eachDiaryContents--back {
     position: relative;
     background-color: white;
-    width: 100%;
+    width: calc(100% + 17px);
     margin-top: 0px;
     left: -8px;
 }
 
 .eachDiaryContents--frame {
     position: relative;
-    width: 100%;
-    left: 2%;
+    width: 1000px;
+    left: calc(50% - 500px);
     top: 0px;
+/*    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(55, 55, 55);*/
 }
 
 .eachDiaryContents--sentence {
@@ -240,21 +235,24 @@ h1.cellTitle:hover {
     position: relative;
     width: 700px;
     left: 0px;
-    top: 20px;
-/*    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(55, 55, 55);*/
-}
-
-.eachDiaryContents--subMenu {
-    position: relative;
-    width: 300px;
-    left: 0px;
     top: 0px;
 /*    border-style: solid;
     border-width: 1px;
     border-color: rgb(55, 55, 55);*/
 }
+
+/*変更分*/
+.eachDiaryArticle--subMenu {
+    display: table-cell;
+    position: relative;
+    width: 300px;
+    left: 0px;
+    top: 97px;
+/*    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(55, 55, 55);*/
+}
+/*変更分ここまで*/
 
 .eachDiaryContents--month {
     position: relative;
@@ -368,7 +366,7 @@ img.eachDiaryImg {
 }
 
 /* sub menu */
-.subMenu__cell--frame,.subMenu__cell--frame--right,.subMenu__cell--frame--single,.subMenu__cell--frame--right--single {
+.subMenu__cell--frame,.subMenu__cell--frame--ranking {
     position: relative;
     display: inline-table;
     text-align: justify;
@@ -463,157 +461,94 @@ a.subMenu__cell--tag:hover {
     margin: 0 auto;
 }
 
-.projectContents__pageMenu--cellSquare {
+
+/*追加分*/
+
+.diary_Article--postdate {
+    position: relative;
+    margin-top: 0px;
+    font-family: "Noto Sans Japanese";
+    font-size: 20px;
+    /*width: 680px;*/
+    width: 97%;
+    font-weight: 700;
+    color: #545454;
+}
+
+.diary_Article--info {
+    position: relative;
+    width: 700px;
+    top: 40px;
+    display: flex;
+/*    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(55, 55, 55);*/
+}
+
+.diary_Article--info h2{
+    position: relative;
+    right: calc(50% - 690px);
+}
+
+.diaryContents__cell_categoryCell_main {
+    position: relative;
+    display: inline-table;
+
+    /*height: 20px;*/
+    top: 0px;
+    font-family: "Noto Sans Japanese";
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    padding: 0px 10px;
+    background-color: #eca41f;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+/*    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(55, 55, 55);*/
+}
+
+.eachDiaryContents--title {
     display: table-cell;
     position: relative;
-    background-color: rgba(0, 160, 233, 1.0);
-    margin-left: 10px;
-    font-family: "Rounded Mplus 1c";
-    text-align: center;
-    vertical-align: middle;
-    color: #2d2d2d;
-    font-size: 16px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: white;
+    width: 700px;
+    left: 0px;
+    top: 40px;
+/*    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(55, 55, 55);*/
 }
 
-.projectContents__pageMenu--cellSquare:hover {
-    background-color: rgba(0, 160, 233, 0.7);
-}
-
-.projectContents__pageMenu--cellRec {
-    display: table-cell;
+h2.diary_Article--title {
     position: relative;
-    background-color: rgba(0, 160, 233, 1.0);
-    width: 70px;
-    height: 50px;
-    margin-left: 10px;
-    font-family: "Rounded Mplus 1c";
-    text-align: center;
-    vertical-align: middle;
-    color: #2d2d2d;
-    font-size: 16px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: white;
-}
-.projectContents__pageMenu--cellRec:hover {
-    background-color: rgba(0, 160, 233, 0.7);
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-family: "Noto Sans Japanese";
+    font-size: 40px;
+    /*width: 680px;*/
+    width: 97%;
+    font-weight: 700;
+    color: #545454;
+    background: linear-gradient(transparent 95%, #0096ff 70%);
 }
 
-.projectContents__pageMenu--cellRecNotButton {
-    display: table-cell;
-    position: relative;
-    background-color: rgba(180, 180, 180, 1.0);
-    width: 70px;
-    height: 50px;
-    margin-left: 10px;
-    font-family: "Rounded Mplus 1c";
-    text-align: center;
-    vertical-align: middle;
-    color: #2d2d2d;
-    font-size: 16px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: white;
+.diary_Article--text{
+  margin-top:40px;
+  width: 97%;
 }
-.pulldown_size_diary {
-    left: 0%;
-    width: 0%;
-    top: -1000px;
-}
-.diaryContents__menuBar--cell > .page-item > .diaryContents__menuBar--cell{
-    top:900px;
+.diary_Article--text img{
+  width: 97%;
+  height: auto;
+  margin-bottom: 15px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 376px){
-    .diaryContents__menuBar--cell{
-        width:0px;
-        top: -500px;
-    }
-    .pulldown_size_diary {
-        left: 0%;
-        width: 100%;
-        margin-top: -20px;
-    }
+.diary_Article--tag{
+  border-top:  solid;
+  border-color: #0096ff;
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
 
-    .collapse{
-        margin-top: 10px;
-    }
-    .eachDiaryContents--subMenu {
-        position: relative;
-        width: 300px;
-        left: 0px;
-        top: 0px;
-    /*    border-style: solid;
-        border-width: 1px;
-        border-color: rgb(55, 55, 55);*/
-    }
-    .projectContents__pageMenu--cellRecNotButton {
-        display: table-cell;
-        position: relative;
-        background-color: rgba(180, 180, 180, 1.0);
-        width: 30px;
-        height: 20px;
-        margin-left: 10px;
-        font-family: "Rounded Mplus 1c";
-        text-align: center;
-        vertical-align: middle;
-        color: #2d2d2d;
-        font-size: 16px;
-        border-style: solid;
-        border-width: 2px;
-        border-color: white;
-    }
-    .projectContents__pageMenu--cellSquare {
-        width: 30px;
-        height: 30px;
-    }
-    .subMenu__cell--frame--right--single{
-        left:100%;
-        top:-456px;
-        width:70%;
-    }
-}
-@media screen and (max-width: 375px){
-    .pulldown_size_diary {
-        left: -28px;
-        width: 100%;
-        margin-top: -20px;
-    }
-    .diaryContents__menuBar--cell{
-        width:0px;
-        top: -500px;
-    }
-
-    .projectContents__pageMenu--cellRecNotButton {
-        display: table-cell;
-        position: relative;
-        background-color: rgba(180, 180, 180, 1.0);
-        width: 30px;
-        height: 20px;
-        margin-left: 10px;
-        font-family: "Rounded Mplus 1c";
-        text-align: center;
-        vertical-align: middle;
-        color: #2d2d2d;
-        font-size: 16px;
-        border-style: solid;
-        border-width: 2px;
-        border-color: white;
-    }
-    .projectContents__pageMenu--cellSquare {
-        width: 30px;
-        height: 30px;
-    }
-}
-@media screen and (min-width: 769px){
-    .eachDiaryContents--subMenu {
-        display: table-cell;
-    }
-    .projectContents__pageMenu--cellSquare {
-        width: 50px;
-        height: 50px;
-    }
-}
+/*追加分ここまで*/

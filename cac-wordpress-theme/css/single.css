@@ -12,6 +12,36 @@ and open the template in the editor.
     position: relative;
     top: 0px;
 }
+.diaryContents__cell_categoryCell_main {
+    position: relative;
+    display: inline-table;
+
+    /*height: 20px;*/
+    top: 0px;
+    font-family: "Noto Sans Japanese";
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    padding: 0px 10px;
+    background-color: #eca41f;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+/*    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(55, 55, 55);*/
+}
+.diary_Article--postdate {
+    position: relative;
+    margin-top: 0px;
+    font-family: "Noto Sans Japanese";
+    font-size: 20px;
+    /*width: 680px;*/
+    width: 97%;
+    font-weight: 700;
+    color: #545454;
+}
+
 
 @media screen and (max-width: 375px){
     .eachDiaryContents--frame {
@@ -23,6 +53,9 @@ and open the template in the editor.
     .eachDiaryContents--frame {
         left: 10%;
         width: 80%;
+    }
+    .subMenu__cell--frame--single {
+        top:20px;
     }
 }
 @media screen and (max-width: 768px) and (min-width: 376px){

@@ -139,7 +139,9 @@ td {
     border-bottom: 1px solid #bbb9b9;
     margin-left: -10px;
 }
-
+.navbar-nav {
+    margin-top: 9px;
+}
 @media screen and (min-width: 769px){
     .header__cacDiscription {
         position: absolute;
@@ -160,6 +162,14 @@ td {
         font-size: 100%;
         margin-left: 10px;
         top: 5px;
+    }
+    .pulldown_content {
+        border-bottom: 1px solid #bbb9b9;
+        border-top: 1px solid #bbb9b9;
+        margin-left: -73%;
+        margin-top: -9px;
+        background-color: white;
+        width: 100vw;
     }
     .miniHeader__Link {
         font-size: 0%;
@@ -203,7 +213,10 @@ td {
     }
     .pulldown_content {
         border-bottom: 1px solid #bbb9b9;
-        margin-left: -10px;
+        border-top: 1px solid #bbb9b9;
+        margin-left: -60%;
+        background-color: white;
+        width: 100vw;
     }
     .miniheader_content{
         margin-left: 10px;

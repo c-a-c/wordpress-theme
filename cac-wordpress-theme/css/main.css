@@ -322,7 +322,7 @@ a {
 }
 .subPageTitle {
     position: relative;
-    top: 50px;
+    top: 100px;
     font-family: 'Noto Sans Japanese';
     font-weight: 500;
     font-size: 300%;
@@ -330,7 +330,7 @@ a {
 
 .subPageSentence {
     position: relative;
-    top: 50px;
+    top: 100px;
     font-family: "Rounded Mplus 1c";
     font-weight: 400;
     font-size: 100%;

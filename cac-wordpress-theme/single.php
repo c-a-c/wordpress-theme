@@ -31,14 +31,33 @@ Version     ： 1.0.0
     <body>
         <!-- header-mini.phpを読み込む -->
         <?php get_header("mini"); ?>
+        <!-- ダイアリーのトップ画像 -->
+        <div class="diaryBackgroundImage"></div>
 
-        <div style="height: 100px;"></div>
+        <!-- ダイアリーの説明 -->
+        <div class="subPageHeader" style="background-color: rgba(255, 255, 255, 0.8);">
+            <div class="subPageTitle" style="color: #545454;">
+                ダイアリー
+            </div>
+            <div class="subPageSentence" style="color: #545454;">
+                弊団体の部員の普段の活動をブログ形式で紹介します。
+            </div>
+        </div>
 
         <!-- start main contents -->
         <div class="eachDiaryContents--back">
             <div class="eachDiaryContents--frame">
                 <div class="eachDiaryContents--sentence">
-                    
+                <div class="diary_Article--info">
+                    <div class="diaryAritcle__cell--categoryFrame">
+                        <a class="diaryContents__cell_categoryCell_main">活動日誌</a>
+                        <h2 class="diary_Article--postdate">
+                            <time datetime="<?php echo get_the_date( 'Y/m/d' ); ?>">
+                                <?php echo get_the_date( 'Y/m/d' ); ?>
+                            </time>
+                        </h2>
+                    </div>
+                </div>
                     <!-- PHPのループ開始　-->
 
                     <?php if(have_posts()): the_post(); ?>
