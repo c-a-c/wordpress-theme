@@ -149,16 +149,11 @@ Version     ： 1.0.0
                     <!-- ページネーションの表示 -->
                     <div class="projectContents__pageMenu--frame">
                         <div class="projectContents__pageMenu--back">
-
-                            <!-- サンプルコード -->
                             <?php
-                                echo htmlspecialchars($width);
-                                if ($width < 767) :
-                                    pagination_cellphone( $the_query->max_num_pages, get_query_var( 'paged' ), 2);
-                                else:
+                                if ( function_exists( 'pagination' ) ) :
                                     pagination( $the_query->max_num_pages, get_query_var( 'paged' ), 2);
-                                endif;
-                            ?>   
+                                endif; 
+                            ?> 
                         </div>
                     </div>
 
