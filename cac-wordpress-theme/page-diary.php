@@ -78,9 +78,9 @@ Version     ： 1.0.0
                         <select class="pulldown_size_diary" onChange="location.href=value;">
                             <option value="http://localhost:8080/diary/">トップ</option>
                             <option value="http://localhost:8080/diary/event/">行事</option>
-                            <option value="http://localhost:8080/diary/activity/">行事</option>
-                            <option value="http://localhost:8080/diary/project/">行事</option>
-                            <option value="http://localhost:8080/diary/members/">行事</option>
+                            <option value="http://localhost:8080/diary/activity/">活動日誌</option>
+                            <option value="http://localhost:8080/diary/project/">プロジェクト</option>
+                            <option value="http://localhost:8080/diary/members/">部員向け情報</option>
                         </select>
                     </nav>
                 </div>
