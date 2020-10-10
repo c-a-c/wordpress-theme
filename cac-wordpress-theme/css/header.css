@@ -133,7 +133,8 @@ td {
     top:-270px
 }
 .pulldown_button{
-    width:20%;
+    margin-left: 56%;
+    width:50%;
 }
 .pulldown_content{
     border-bottom: 1px solid #bbb9b9;
@@ -180,7 +181,8 @@ td {
         top: 0px;
     }
     .pulldown_button{
-        width:25%;
+        margin-left: 56%;
+        width:50%;
     }
     .miniheader-navi > .menu-item{
         border-bottom: 1px solid #bbb9b9;
@@ -230,7 +232,8 @@ td {
         top: 1px;
     }
     .pulldown_button{
-        width:25%;
+        margin-left: 56%;
+        width:50%;
     }
     .miniheader-navi > .menu-item{
         border-bottom: 1px solid #bbb9b9;

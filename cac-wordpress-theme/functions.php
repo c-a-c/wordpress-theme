@@ -192,65 +192,6 @@ function pagination( $pages, $paged, $range = 2) {
     $paged = $paged ?: 1;       //get_query_var('paged')をそのまま投げても大丈夫なように
 
     //表示テキスト
-    $text_first   = "« First";
-    $text_before  = "‹ Prev";
-    $text_next    = "Next ›";
-    $text_last    = "Last »";
-
-    //全ページ数の表示
-    echo '<a class="projectContents__pageMenu--cellRecNotButton">', $paged ,' / ', $pages ,'</a>';
-
-    //「First」の表示
-    if ( $paged == 1 ) {
-        echo '<a class="projectContents__pageMenu--cellRec" style="background-color: #dddddd">', $text_first ,'</a>';
-    } else {
-        echo '<a href="', get_pagenum_link(1) ,'" class="projectContents__pageMenu--cellRec">', $text_first ,'</a>';
-    }
-
-    //「Prev」の表示
-    if ( $paged == 1 ) {
-        echo '<a class="projectContents__pageMenu--cellRec" style="background-color: #dddddd">', $text_before ,'</a>';
-    } else {
-        echo '<a href="', get_pagenum_link( $paged - 1 ) ,'" class="projectContents__pageMenu--cellRec">', $text_before ,'</a>';
-    }
-
-    //ページの表示
-    for ( $i = 1; $i <= $pages; $i++ ) {
-        if ( $i <= $paged + $range && $i >= $paged - $range ) {
-            // $paged +- $range 以内であればページ番号を出力
-            if ( $paged === $i ) {
-                echo '<a class="projectContents__pageMenu--cellSquare" style="background-color: #dddddd">', $i ,'</a>';
-            } else {
-                    echo '<a href="', get_pagenum_link( $i ) ,'" class="projectContents__pageMenu--cellSquare">', $i ,'</a>';
-            }
-        }
-    }
-
-    //「Next」の表示
-    if ( $paged == $pages ) {
-        echo '<a class="projectContents__pageMenu--cellRec" style="background-color: #dddddd">', $text_next ,'</a>';
-    } else {
-        echo '<a href="', get_pagenum_link( $paged + 1 ) ,'" class="projectContents__pageMenu--cellRec">', $text_next ,'</a>';
-    }
-
-    //「Last」の表示
-    if ( $paged == $pages ) {
-        echo '<a " class="projectContents__pageMenu--cellRec" style="background-color: #dddddd">', $text_last ,'</a>';
-    } else {
-        echo '<a href="', get_pagenum_link( $pages ) ,'" class="projectContents__pageMenu--cellRec">', $text_last ,'</a>';
-    }
-
-    echo '</div>';
-
-    return;
-}
-
-function pagination_cellphone( $pages, $paged, $range = 2) {
-
-    $pages = ( int ) $pages;    //float型で渡ってくるので明示的に int型 へ
-    $paged = $paged ?: 1;       //get_query_var('paged')をそのまま投げても大丈夫なように
-
-    //表示テキスト
     $text_first   = "<<";
     $text_before  = "<";
     $text_next    = ">";
@@ -303,6 +244,7 @@ function pagination_cellphone( $pages, $paged, $range = 2) {
 
     return;
 }
+
 function is_mobile() {
  $useragents = array(
    'iPhone',             // iPhone

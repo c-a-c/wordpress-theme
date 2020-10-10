@@ -46,7 +46,7 @@ Version     ： 1.0.0
 
         <!-- start main contents -->
         <div class="eachDiaryContents--back">
-            <div class="eachDiaryContents--frame">
+            <div class="eachDiaryContents--frame-single">
                 <div class="eachDiaryContents--sentence">
                 <div class="diary_Article--info">
                     <div class="diaryAritcle__cell--categoryFrame">
