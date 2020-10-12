@@ -29,7 +29,15 @@ a {
     text-shadow: 1px 1px 7px rgba(0,0,0,0.5);
     font-size: 400%;
 }
-.mainTitle__titleJapanese {
+.mainTitle__titleJapanese_pc {
+    position: relative;
+    top: 150px;
+    font-family: "Sawarabi Mincho";
+    color: #ffffff;
+    text-shadow: 1px 1px 7px rgba(0,0,0,0.5);
+    font-size: 200%;
+}
+.mainTitle__titleJapanese_cellphone{
     position: relative;
     top: 150px;
     font-family: "Sawarabi Mincho";
@@ -332,12 +340,21 @@ a {
     position: relative;
     top: 100px;
     font-family: "Rounded Mplus 1c";
+    left: 5%;
+    right: 5%;
+    width: 90%;
     font-weight: 400;
     font-size: 100%;
     padding-bottom: 150px;
 }
 
 @media screen and (max-width: 769px){
+    .mainTitle__titleJapanese_pc {
+        display:none;
+    }
+    .mainTitle__titleJapanese_cellphone {
+        display:block;
+    }
     .miniHeader__Link {
         position: relative;
         cursor: pointer;
@@ -408,5 +425,13 @@ a {
         border-color: #545454;
         transition: all 100ms 0s ease;
         cursor: pointer;
+    }
+}
+@media screen and (min-width: 769px){
+    .mainTitle__titleJapanese_pc {
+        display:block;
+    }
+    .mainTitle__titleJapanese_cellphone {
+        display:none;
     }
 }

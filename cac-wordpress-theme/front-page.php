@@ -44,7 +44,8 @@ Version     ： 1.0.0
         <!-- start main contents -->
         <div class="mainTitle">
             <div class="mainTitle__titleEnglish">Beyond your Creation</div>
-            <div class="mainTitle__titleJapanese">「作るだけ」で、終わらせない</div>
+            <div class="mainTitle__titleJapanese_pc">「作るだけ」で、終わらせない</div>
+            <div class="mainTitle__titleJapanese_cellphone">「作るだけ」で、<br>終わらせない</div>
         </div>
 
         <div class="mainMenu">

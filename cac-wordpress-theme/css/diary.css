@@ -23,7 +23,7 @@ and open the template in the editor.
 .diaryContents__cell--frame {
     position: relative;
     display: inline-table;
-    width: 325px;
+    width: 375px;
     height: 450px;
     margin-left: 10px;
     margin-bottom: 10px;
@@ -230,15 +230,13 @@ h1.cellTitle:hover {
 
 .eachDiaryContents--frame {
     position: relative;
-    left: 6%;
-    width: 93%;
     top: 0px;
 }
 
 .eachDiaryContents--sentence {
     display: table-cell;
     position: relative;
-    width: 700px;
+    width: 67%;
     left: 0px;
     top: 20px;
 /*    border-style: solid;
@@ -521,13 +519,17 @@ a.subMenu__cell--tag:hover {
 .pulldown_size_diary {
     left: 0%;
     width: 0%;
-    top: -1000px;
+    margin-top: -99000px;
 }
 .diaryContents__menuBar--cell > .page-item > .diaryContents__menuBar--cell{
     top:900px;
 }
 
 @media screen and (max-width: 768px) and (min-width: 376px){
+    .eachDiaryContents--frame {
+        left: 11%;
+        width: 86%;
+    }
     .diaryContents__menuBar--cell{
         width:0px;
         top: -500px;
@@ -582,11 +584,28 @@ a.subMenu__cell--tag:hover {
         width: 100%;
         margin-top: -20px;
     }
+    .diaryContents__cell--frame {
+        position: relative;
+        display: inline-table;
+        width: 90%;
+        height: 450px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        background-color: white;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+    /*    border-style: solid;
+        border-width: 1px;
+        border-color: rgb(55, 55, 55);*/
+        z-index: 100;
+    }
     .diaryContents__menuBar--cell{
         width:0px;
         top: -500px;
     }
-
+    .eachDiaryContents--frame {
+        left: 5%;
+        width: 95%;
+    }
     .projectContents__pageMenu--cellRecNotButton {
         display: table-cell;
         position: relative;
@@ -615,5 +634,9 @@ a.subMenu__cell--tag:hover {
     .projectContents__pageMenu--cellSquare {
         width: 50px;
         height: 50px;
+    }
+    .eachDiaryContents--frame {
+        left: 5%;
+        width: 95%;
     }
 }
