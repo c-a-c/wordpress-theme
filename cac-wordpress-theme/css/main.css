@@ -133,6 +133,7 @@ a {
     color: #ffffff;
     font-size: 15px;
     text-align: center;
+    z-index: 300;
 }
 .mainMenu__discriptionMoreButton {
     position: relative;
@@ -150,6 +151,7 @@ a {
     border-style: solid;
     border-color: white;
     margin: 0 auto;
+    z-index:299;
 }
 .mainMenu__imageLeft {
     position: absolute;
